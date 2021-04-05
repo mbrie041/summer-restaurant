@@ -1,0 +1,8 @@
+DROP TABLE IF EXISTS orders CASCADE;
+CREATE TABLE orders (
+  id SERIAL PRIMARY KEY,
+  user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+  order_confirmed BOOLEAN DEFAULT false,
+  order_pending BOOLEAN DEFAULT false,
+  order_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
