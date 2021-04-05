@@ -46,22 +46,22 @@ module.exports = (db) => {
   exports.login = login;
 
   router.post('/login', (req, res) => {
-    const {email, password} = req.body;
+    const { email, password } = req.body;
     // console.log('correct end point')
     login(email, password)
       .then(user => {
         // console.log("after",user)
         if (!user) {
-          res.json({error: "error"});
+          res.json({ error: "error" });
         }
         if (user.email === "admin@summer.com") {
           req.session.userId = user.id;
-          console.log(' req.session.userId',req.session.userId)
+          console.log(' req.session.userId', req.session.userId)
           res.redirect("/");
         } else {
-        req.session.userId = user.id;
-        console.log(' req.session.userId',req.session.userId)
-        res.json("we're going to redirect here");
+          req.session.userId = user.id;
+          console.log(' req.session.userId', req.session.userId)
+          res.json("we're going to redirect here");
         }
       })
       .catch(e => {
