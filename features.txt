@@ -1,0 +1,42 @@
+List of features:
+
+1. Display menu as category (either at the top or side)
+  - tabs for each category of menu
+    - apps, dinners, deserts
+  - seperate page for each menu category
+  - "+", "-" and a text box for variables to increase or decrease quantity (stretch)
+  - add to cart button that takes those items and adds it to the users cart
+2. Mobile friendly
+  - 3 break points (Mobile, tablet, desktop)
+3. SMS API for restaurant and user
+  - When an order is placed the restaurant receives the order via SMS.
+  - The restaurant can then specify how long it will take to fulfill it.
+  - Once they provide this information, the website updates for the client and also notifies them via SMS.
+4. A cart page
+  - displays selected items in cart
+
+
+Stretch:
+. Search feature to the menu
+
+. Add user registration
+. Add payment
+- We may change this so that the database house time information and does the time work for the rest
+
+Database vs Local storage:
+- When user clicks add item to cart we insert item and quantity for user id into shopping cart
+
+- When user is on the checkout page/a hovering checkout page we can display all items in the shopping cart table for that user
+
+  Process when submitting order:
+  //start transaction
+
+  - Insert new order number in order number table
+  - Returning primary key into variable "order id"
+
+  - Query shopping cart for items_id, quantity
+  - Where user id = user id
+  - Insert items_id, quantity and order number id into items_ordernumber table under the new order number
+
+  - Delete rows in shopping cart where user id = user id
+  //end of transaction
