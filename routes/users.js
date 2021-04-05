@@ -12,11 +12,9 @@ const router = express.Router();
 
 
 
-
-
 module.exports = (db) => {
   router.get("/login", (req, res) => {
-    res.send("Login page");
+    res.render('login')
   });
 
   const getUserWithEmail = function (email) {
