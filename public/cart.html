@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <!-- Meta Information -->
+ <title>Summer's Restaurant</title>
+ <!-- App CSS -->
+ <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+ <!-- ICONS -->
+ <script src="https://kit.fontawesome.com/3254a5221a.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+  <!-- Top nav bar (fixed) -->
+  <nav>
+    <button><i id="restaurant-icon" class="fas fa-utensils"></i>
+    <button><span id="login">LOG IN</span></button>
+    <button><i id="cart-icon" class="fas fa-shopping-cart"></i></button>
+  </nav>
+
+  <header class="main-header">
+    <div>
+      <img id="restaurant_main_image" src="/images/restaurant_main.png">
+      <h1>SUMMER'S RESTAURANT</h1>
+    </div>
+  </header>
+
+  <!-- Page-specific (main) content here -->
+  <main>
+  <!-- main menu -->
+  <section class="menu">
+    <ul><h3>Appetizers</h3></ul>
+    <ul><h3>Dinners</h3></ul>
+    <ul><h3>Desserts</h3></ul>
+    <ul><h3>Drinks</h3></ul>
+  </section>
+
+  <section class="cart">
+    <div>
+    <h3>Cart</h3>
+    <h4 class="food-name">Egg Roll</h4>
+    <img id="food_image" src="/images/eggrolls.jpg">
+    <p class="food-description">Delicious egg roll!</p>
+    <button><i class="far fa-minus-square"></i></button>
+    <button><i class="far fa-plus-square"></i></button>
+    <button><i class="fas fa-times"></i></button>
+  </div>
+  <button>Submit</button>
+  </section>
+
+  </main>
+</body>
+</html>
