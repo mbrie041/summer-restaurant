@@ -12,30 +12,12 @@
 </head>
 
 <body>
-  <!-- Top nav bar (fixed) -->
-  <nav>
-    <button><i id="restaurant-icon" class="fas fa-utensils"></i>
-    <button><span id="login">LOG IN</span></button>
-    <button><i id="cart-icon" class="fas fa-shopping-cart"></i></button>
-  </nav>
-
-  <header class="main-header">
-    <div>
-      <img id="restaurant_main_image" src="/images/restaurant_main.png">
-      <h1>SUMMER'S RESTAURANT</h1>
-    </div>
-  </header>
+  <%- include('partials/_header') %>
 
   <!-- Page-specific (main) content here -->
   <main>
   <!-- main menu -->
-  <section class="menu">
-    <h2>MAIN MENUS</h2>
-    <ul><h3>Appetizers</h3></ul>
-    <ul><h3>Dinners</h3></ul>
-    <ul><h3>Desserts</h3></ul>
-    <ul><h3>Drinks</h3></ul>
-  </section>
+  <%- include('partials/_menu') %>
 
   <section class="food-title">
     <h3>Appetizers</h3>

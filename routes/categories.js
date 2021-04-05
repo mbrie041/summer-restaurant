@@ -14,6 +14,7 @@ module.exports = (db) => {
           .status(500)
           .json({ error: err.message });
       });
+      res.render('food-menu');
   });
   //displays dinner page
   router.get("/dinner", (req, res) => {
@@ -27,6 +28,7 @@ module.exports = (db) => {
           .status(500)
           .json({ error: err.message });
       });
+      res.render('food-menu');
   });
 
   //displays desserts page
@@ -41,6 +43,7 @@ module.exports = (db) => {
           .status(500)
           .json({ error: err.message });
       });
+      res.render('food-menu');
   });
 
   //displays drinks page
@@ -55,6 +58,7 @@ module.exports = (db) => {
           .status(500)
           .json({ error: err.message });
       });
+      res.render('food-menu');
   });
   return router;
 };
