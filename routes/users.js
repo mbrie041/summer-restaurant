@@ -47,23 +47,25 @@ module.exports = (db) => {
 
   router.post('/login', (req, res) => {
     const {email, password} = req.body;
-    console.log('correct end point')
+    // console.log('correct end point')
     login(email, password)
       .then(user => {
-        console.log("after",user)
+        // console.log("after",user)
         if (!user) {
           res.json({error: "error"});
         }
         if (user.email === "admin@summer.com") {
           req.session.userId = user.id;
+          console.log(' req.session.userId',req.session.userId)
           res.redirect("/");
         } else {
         req.session.userId = user.id;
+        console.log(' req.session.userId',req.session.userId)
         res.json("we're going to redirect here");
         }
       })
       .catch(e => {
-        console.log("we're getting an error",e)
+        // console.log("we're getting an error",e)
         res.send(e)
       });
   });
