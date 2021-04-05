@@ -1,9 +1,83 @@
 // See: https://sass-lang.com/
 
 body {
-  background-color: #EEE;
-
-  h1 {
-    color: #244751;
-  }
+  color: #666666;
+  font-size: 15px;
+  font-family: 'Athiti', sans-serif;
+  line-height: 1.80857;
 }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    letter-spacing: 0;
+    font-weight: normal;
+    position: relative;
+    padding: 0 0 10px 0;
+    font-weight: normal;
+    line-height: 120% !important;
+    color: #1f1f1f;
+    margin: 0
+}
+
+h1 {
+  font-size: 24px
+}
+
+h2 {
+  font-size: 22px
+}
+
+h3 {
+  font-size: 18px
+}
+
+h4 {
+  font-size: 16px
+}
+
+button:focus{
+	outline: none;
+}
+
+ul{
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+}
+
+// header
+.navbar{
+  border: none;
+  background: #ffffff;
+  padding: 15px 0;
+  border-radius: 0;
+  margin-bottom: 0;
+	position: fixed;
+  display: flex;
+  justify-content: space-between;
+	width: 100%;
+  top: 0;
+
+#restaurant-icon {
+  padding: 18px;
+  font-size: 24px;
+  border: none;
+}
+
+#login {
+  font-size: 24px;
+  border: none;
+}
+
+#cart-icon {
+  border: none;
+  font-size: 24px;
+}
+
+}
+
+
