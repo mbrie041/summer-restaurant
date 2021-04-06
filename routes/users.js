@@ -36,7 +36,7 @@ module.exports = (db) => {
 
 
   const login = function (email, password) {
-    return getUserWithEmail(email).then((user) => {
+    return getUserWithEmail(email).then(user => {
       if (password === user.password) {
         return user;
       }
@@ -70,6 +70,10 @@ module.exports = (db) => {
       });
   });
 
+  router.get('/logout', (req, res) => {
+    req.session = null;
+    res.redirect('/');
+  });
 
   return router;
 };
