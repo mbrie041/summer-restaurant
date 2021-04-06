@@ -3,16 +3,19 @@ const router = express.Router();
 
 module.exports = (db) => {
   router.post("/:id/shopping-cart-increment", (req, res) => {
+    console.log("req.session",req.session)
+
+
     db.query(
       `
       INSERT INTO shopping_cart(user_id, product_id, quantity)
-      VALUES(${req.session.user_id}, ${req.params.id}, 1)
+      VALUES(${req.session.userId}, ${req.params.id}, 1)
       ON CONFLICT(product_id, user_id) DO UPDATE
       SET quantity = shopping_cart.quantity +1
-      WHERE user_id = ${req.session.user_id}
-      AND product_id = ${req.params.id};`
-    ).then(res => console.log(res))
-    .catch(e => (e))
+      WHERE shopping_cart.user_id = ${req.session.userId}
+      AND shopping_cart.product_id = ${req.params.id};`
+    )
+    .then(res => console.log(res));
   });
   return router;
   //INSERT INTO shopping_cart (user_id, product_id, quantity) VALUES (1, 1, 1) ON CONFLICT(product_id, user_id) DO UPDATE SET quantity = shopping_cart.quantity +1;
