@@ -16,17 +16,15 @@
 
     <!-- Page-specific (main) content here -->
     <main>
-
-      <!-- main menu -->
-      <div class="menu-display">
-        <%- include('partials/_menu') %>
-
-          <section class="submit">
-            <h3>Order Submitted</h3>
-            <p>Please wait while the restaurant confirms your order. </p>
-            <form method="GET" action="/api/orders/${submitOrders.user_id}/orders"><button> Check Your Order </button></form>
-          </section>
-      </div>
+      <section>
+        <h3>Orders Dashboard</h3>
+        <article>
+          <% for(let dashOrder of dashOrders) { %>
+              <h4><%= dashOrder.id %></h4>
+              <button type="submit">Comfirm</button>
+        <% } %>
+        </article>
+      </section>
     </main>
 </body>
 

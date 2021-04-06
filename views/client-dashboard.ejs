@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Meta Information -->
+  <title>Summer's Restaurant</title>
+  <!-- App CSS -->
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <!-- ICONS -->
+  <script src="https://kit.fontawesome.com/3254a5221a.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+  <%- include('partials/_header') %>
+
+    <!-- Page-specific (main) content here -->
+    <main>
+      <section>
+        <h3>Orders Dashboard</h3>
+        <!-- <article>
+          <% for(let clientOrder of clientOrders) { %>
+              <h4> <%= clientOrder.id %></h4>
+              <% if (!clientOrder.order_pending) { %>
+                <p>Order confirmed by the restaurant.</p>
+                <% } else (clientOrder.order_pending) { %>
+                  <p>Order is pending confirmation from the restaurant.</p>
+            <% } %>
+        <% } %>
+        </article> -->
+
+      </section>
+    </main>
+</body>
+
+</html>

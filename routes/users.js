@@ -61,7 +61,7 @@ module.exports = (db) => {
         } else {
           req.session.userId = user.id;
           console.log(' req.session.userId', req.session.userId)
-          res.json("we're going to redirect here");
+          res.redirect("/");
         }
       })
       .catch(e => {

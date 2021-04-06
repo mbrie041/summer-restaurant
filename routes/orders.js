@@ -10,12 +10,12 @@ const router = express.Router();
 
 module.exports = (db) => {
   router.get("/checkout", (req, res) => {
-    let query = `SELECT * FROM shopping_cart WHERE user_id = $1`;
+    let query = `SELECT products.name, products.price_cents, products.food_url, shopping_cart.user_id, shopping_cart.quantity FROM products JOIN shopping_cart ON products.id=product_id WHERE user_id = $1`;
     // console.log(query);
     db.query(query, [req.session.userId])
       .then(data => {
-        const order = data.rows;
-        res.json({ order });
+        const orders = data.rows;
+        res.render("checkout", { orders });
       })
       .catch(err => {
         res
@@ -30,7 +30,8 @@ module.exports = (db) => {
     db.query(query)
       .then(data => {
         if (req.session.userId === 1) {
-          res.json(data.rows)
+          const dashOrders = data.rows;
+          res.render("dashboard", { dashOrders });
         } else {
           res.send('You are not authorized to access this function')
         }
@@ -47,7 +48,8 @@ module.exports = (db) => {
     // console.log(query);
     db.query(query, [req.session.userId])
       .then(data => {
-        res.send(`Your order has been submitted, check 'Orders' to get the current status of your order`)
+        const submitOrders = data.rows;
+        res.render("submit", { submitOrders })
       })
       .catch(err => {
         res
@@ -61,7 +63,8 @@ module.exports = (db) => {
     db.query(query, [req.session.userId])
       .then(data => {
         if (req.params.id = req.session.userId) {
-          res.send(data.rows)
+          const clientOrders = data.rows
+          res.render("client-dashboard", {clientOrders})
         }
         else {
           res.send('You are only allowed to see your own orders')
