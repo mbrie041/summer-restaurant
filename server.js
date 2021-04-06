@@ -38,6 +38,7 @@ const usersRoutes = require("./routes/users");
 const categoriesRoutes = require("./routes/categories")
 const ordersRoutes = require("./routes/orders");
 const productsRoutes = require("./routes/categories");
+const incrementalRoutes = require("./routes/products");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -45,6 +46,7 @@ app.use("/api/users", usersRoutes(db));
 app.use("/api/categories", categoriesRoutes(db));
 app.use("/api/orders", ordersRoutes(db));
 app.use("/api/categories", productsRoutes(db));
+app.use("/api/products", incrementalRoutes(db))
 // Note: mount other resources here, using the same pattern above
 
 
