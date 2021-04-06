@@ -6,3 +6,7 @@ CREATE TABLE shopping_cart (
   quantity INTEGER NOT NULL,
   UNIQUE(product_id, user_id)
 );
+
+
+
+

@@ -6,10 +6,9 @@ module.exports = (db) => {
     db.query(`
       INSERT INTO shopping_cart(user_id, product_id, quantity)
       VALUES(req.session.user_id, req.params.id, 1)
-      ON CONFLICT DO UPDATE
-      SET quantity = quantity + 1
-      WHERE user_id = req.session.user_id
-      AND product_id = req.params.id;`);
+      ON CONFLICT(product_id, user_id) DO UPDATE
+      SET quantity = shopping_cart.quantity + 1
+     `);
 
     return quantity;
     //return new value
@@ -17,12 +16,11 @@ module.exports = (db) => {
 
   router.get("/products/:id/shopping-cart-decrement", (req, res) => {
     db.query(`
-      INSERT INTO shopping_cart(user_id, product_id, quantity)
-      VALUES(req.session.user_id, req.params.id, 1)
-      ON CONFLICT DO UPDATE
-      SET quantity = quantity -1
-      WHERE user_id = req.session.user_id
-      AND product_id = req.params.id;`);
+    INSERT INTO shopping_cart(user_id, product_id, quantity)
+    VALUES(req.session.user_id, req.params.id, 1)
+    ON CONFLICT(product_id, user_id) DO UPDATE
+    SET quantity = shopping_cart.quantity -1
+    `);
 
     return quantity;
     //return new value
