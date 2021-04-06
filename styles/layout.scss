@@ -1,6 +1,11 @@
 // See: https://sass-lang.com/
 
 // header
+
+button:focus{
+	outline: none;
+}
+
 .navbar{
   border: none;
   background: #ffffff;
@@ -66,47 +71,51 @@ h1 {
 }
 
 
-.menu {
-  border: solid black;
-  list-style: none;
-  margin: 10px;
-  width: 250px;
-  display: inline-block;
-  text-align: center;
-  margin-left: 10px;
-  display: inline-block;
-  padding: 10px;
-  margin: 20px;
+.menu-display {
+  display: flex;
 
-  ul{
+  .menu {
+    border: solid black;
     list-style: none;
-    text-align: left;
-    margin: 0;
-    margin-right: 100px;
-    line-height: 2;
-    color: black;
+    margin: 10px;
+    width: 190px;
+    text-align: center;
+    margin-left: 10px;
+    padding: 10px;
+    margin: 20px;
+
+      ul{
+        list-style: none;
+        text-align: center;
+        line-height: 2;
+        color: black;
+        margin:0;
+        padding:0;
+      }
+    }
+
+  #intro_image {
+    width: 100%;
+    opacity: 80%;
+    width: 100%;
+    position: relative;
+  }
+
+  #intro-message {
+    position:absolute;
+    left:35%;
+    top:100%;
+    font-size: 20px;
+    color:black;
+    margin: 10px;
+    margin-right: 30px;
+    letter-spacing: 3px;
+    background-color: #ffffff;
+    }
+
+  .food-menu {
+    border: solid black;
   }
 }
 
-#intro_image {
-  width: 100%;
-  opacity: 80%;
-  margin-top: 90px;
-}
 
-.intro_message {
-  font-size: 20px;
-  color:black;
-  margin: 10px;
-  margin-right: 30px;
-  letter-spacing: 3px;
-
-  // background-image: url("../public/images/intro.png");
-  // background-repeat: no-repeat;
-  // background-position: center;
-  // background-attachment:fixed;
-}
-
-.food-menu {
-  border: solid black;
-}

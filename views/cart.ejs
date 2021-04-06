@@ -2,12 +2,12 @@
 <html lang="en">
 
 <head>
- <!-- Meta Information -->
- <title>Summer's Restaurant</title>
- <!-- App CSS -->
- <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
- <!-- ICONS -->
- <script src="https://kit.fontawesome.com/3254a5221a.js" crossorigin="anonymous"></script>
+  <!-- Meta Information -->
+  <title>Summer's Restaurant</title>
+  <!-- App CSS -->
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <!-- ICONS -->
+  <script src="https://kit.fontawesome.com/3254a5221a.js" crossorigin="anonymous"></script>
 
 </head>
 
@@ -15,25 +15,26 @@
 
   <%- include('partials/_header') %>
 
-  <!-- Page-specific (main) content here -->
-  <main>
+    <!-- Page-specific (main) content here -->
+    <main>
+      <div class="menu-display">
+        <%- include('partials/_menu') %>
 
-    <%- include('partials/_menu') %>
+          <section class="cart">
 
-  <section class="cart">
-
-    <div>
-    <h3>Cart</h3>
-    <h4 class="food-name">Egg Roll</h4>
-    <img id="food_image" src="/images/eggrolls.jpg">
-    <p class="food-description">Delicious egg roll!</p>
-    <button><i class="far fa-minus-square"></i></button>
-    <button><i class="far fa-plus-square"></i></button>
-    <button><i class="fas fa-times"></i></button>
-  </div>
-  <button>Submit</button>
-  </section>
-
-  </main>
+            <div>
+              <h3>Cart</h3>
+              <h4 class="food-name">Egg Roll</h4>
+              <img id="food_image" src="/images/eggrolls.jpg">
+              <p class="food-description">Delicious egg roll!</p>
+              <button><i class="far fa-minus-square"></i></button>
+              <button><i class="far fa-plus-square"></i></button>
+              <button><i class="fas fa-times"></i></button>
+            </div>
+            <button>Submit</button>
+          </section>
+      </div>
+    </main>
 </body>
+
 </html>

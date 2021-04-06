@@ -10,6 +10,29 @@ const getApps = function(db) {
   })
 }
 
+const getDinner = function(db) {
+  return db.query(`SELECT * FROM products WHERE isDinner IS TRUE;`)
+  .then(data => {
+    const dinner = data.rows;
+    return dinner;
+  })
+}
+
+const getDesserts = function(db) {
+  return db.query(`SELECT * FROM products WHERE isDessert IS TRUE;`)
+  .then(data => {
+    const desserts = data.rows;
+    return desserts;
+  })
+}
+
+const getDrinks = function(db) {
+  return db.query(`SELECT * FROM products WHERE isDrink IS TRUE;`)
+  .then(data => {
+    const drinks = data.rows;
+    return drinks;
+  })
+}
 
 module.exports = (db) => {
   //displays apps page
@@ -22,45 +45,41 @@ module.exports = (db) => {
         .status(500)
         .json({ error: err.message });
     });
-
   });
   //displays dinner page
   router.get("/dinner", (req, res) => {
-    db.query(`SELECT * FROM products WHERE isDinner IS TRUE;`)
-      .then((data) => {
-        const dinners = data.rows;
-        res.json({ dinners });
-      })
-      .catch((err) => {
-        res.status(500).json({ error: err.message });
-      });
-    res.render("food-menu");
+    return getDinner(db).then(function(resolvedFoods){
+      return res.render("food-menu", {foods: resolvedFoods});
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .json({ error: err.message });
+    });
   });
 
   //displays desserts page
   router.get("/desserts", (req, res) => {
-    db.query(`SELECT * FROM products WHERE isDessert IS TRUE;`)
-      .then((data) => {
-        const desserts = data.rows;
-        res.json({ desserts });
-      })
-      .catch((err) => {
-        res.status(500).json({ error: err.message });
-      });
-    res.render("food-menu");
+    return getDesserts(db).then(function(resolvedFoods){
+      return res.render("food-menu", {foods: resolvedFoods});
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .json({ error: err.message });
+    });
   });
 
   //displays drinks page
   router.get("/drinks", (req, res) => {
-    db.query(`SELECT * FROM products WHERE isDrink IS TRUE;`)
-      .then((data) => {
-        const drinks = data.rows;
-        res.json({ drinks });
-      })
-      .catch((err) => {
-        res.status(500).json({ error: err.message });
-      });
-    res.render("food-menu");
+    return getDrinks(db).then(function(resolvedFoods){
+      return res.render("food-menu", {foods: resolvedFoods});
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .json({ error: err.message });
+    });
   });
 
   return router;

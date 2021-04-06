@@ -2,29 +2,31 @@
 <html lang="en">
 
 <head>
- <!-- Meta Information -->
- <title>Summer's Restaurant</title>
- <!-- App CSS -->
- <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
- <!-- ICONS -->
- <script src="https://kit.fontawesome.com/3254a5221a.js" crossorigin="anonymous"></script>
+  <!-- Meta Information -->
+  <title>Summer's Restaurant</title>
+  <!-- App CSS -->
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <!-- ICONS -->
+  <script src="https://kit.fontawesome.com/3254a5221a.js" crossorigin="anonymous"></script>
 
 </head>
 
 <body>
   <%- include('partials/_header') %>
 
-  <!-- Page-specific (main) content here -->
-  <main>
+    <!-- Page-specific (main) content here -->
+    <main>
 
-  <!-- main menu -->
-   <%- include('partials/_menu') %>
+      <!-- main menu -->
+      <div class="menu-display">
+        <%- include('partials/_menu') %>
 
-  <section class="submit">
-    <h3>Order Submitted</h3>
-    <p>Please wait will the restaurant confirms your order. </p>
-  </section>
-
-  </main>
+          <section class="submit">
+            <h3>Order Submitted</h3>
+            <p>Please wait will the restaurant confirms your order. </p>
+          </section>
+      </div>
+    </main>
 </body>
+
 </html>

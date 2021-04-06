@@ -2,32 +2,31 @@
 <html lang="en">
 
 <head>
- <!-- Meta Information -->
- <title>Summer's Restaurant</title>
- <!-- App CSS -->
- <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
- <!-- ICONS -->
- <script src="https://kit.fontawesome.com/3254a5221a.js" crossorigin="anonymous"></script>
+  <!-- Meta Information -->
+  <title>Summer's Restaurant</title>
+  <!-- App CSS -->
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <!-- ICONS -->
+  <script src="https://kit.fontawesome.com/3254a5221a.js" crossorigin="anonymous"></script>
 </head>
-
 
 <body>
   <%- include('partials/_header') %>
 
-  <!-- Page-specific (main) content here -->
-  <main>
-    <%- include('partials/_menu') %>
-
-  <section class="intro">
-    <img id="intro_image" src="/images/intro.jpg">
-    <div class="intro_message">
-    <p>Welcome!</p>
-    <p><b>History of Summer’s Restaurant!</b></p>
-    <p>
-      A brief history on why Summer quit bootcamp and started her own famous restaurant chain in Canada.</p>
+    <!-- Page-specific (main) content here -->
+    <main>
+      <div class="menu-display">
+        <%- include('partials/_menu') %>
+          <section class="intro">
+            <img id="intro_image" src="/images/intro.jpg">
+            <div id="intro-message">
+              <p>Welcome!</p>
+              <p>History of Summer’s Restaurant!
+                A brief history on why Summer quit bootcamp and started her own famous restaurant chain in Canada.</p>
+            </div>
+          </section>
       </div>
-  </section>
-
-  </main>
+    </main>
 </body>
+
 </html>

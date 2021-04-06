@@ -20,21 +20,19 @@
 
   <!-- Page-specific (main) content here -->
   <main>
-  <!-- main menu -->
+    <div class="menu-display">
   <%- include('partials/_menu') %>
 
   <article class="food-menu">
     <% for(let food of foods) { %>
-    <li class="food">
         <h4 class="food-name"><%= food.name %></h4>
         <img id="food_image" src="<%= food.food_url %>">
         <p><%= food.price_cents / 100 %></p>
         <button value="<%=food.id%>" class="decrement-button"><img src="http://simpleicon.com/wp-content/uploads/plus.png"></button>
         <button value="<%=food.id%>" class="increment-button"><img src="http://simpleicon.com/wp-content/uploads/plus.png"></button>
-    </li>
   <% } %>
   </article>
-
+</div>
   </main>
 </body>
 </html>
