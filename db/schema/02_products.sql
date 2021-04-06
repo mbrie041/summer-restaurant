@@ -3,6 +3,7 @@ CREATE TABLE products (
   id SERIAL PRIMARY KEY,
   name VARCHAR(255) NOT NULL,
   price_cents INTEGER NOT NULL,
+  food_url VARCHAR(255) NOT NULL,
   isApp BOOLEAN DEFAULT false,
   isDinner BOOLEAN DEFAULT false,
   isDessert BOOLEAN DEFAULT false,

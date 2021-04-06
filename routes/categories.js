@@ -1,20 +1,25 @@
 const express = require('express');
 const router = express.Router();
 
+const getAllProducts = function(db) {
+  return db.query(`SELECT * FROM products WHERE isApp IS TRUE;`)
+  .then(data => {
+    const apps = data.rows;
+    return apps;
+  })
+};
+
 module.exports = (db) => {
   //displays apps page
   router.get("/apps", (req, res) => {
-    db.query(`SELECT * FROM products WHERE isApp IS TRUE;`)
-      .then(data => {
-        const apps = data.rows;
-        res.json({ apps });
-      })
-      .catch(err => {
-        res
-          .status(500)
-          .json({ error: err.message });
-      });
-      res.render('food-menu');
+    return getAllProducts(db).then(function(resolvedProducts){
+      return res.render('food-menu', {products: resolvedProducts});
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .json({ error: err.message });
+    });
   });
   //displays dinner page
   router.get("/dinner", (req, res) => {

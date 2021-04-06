@@ -19,15 +19,19 @@
   <!-- main menu -->
   <%- include('partials/_menu') %>
 
-  <section class="food-title">
-    <h3>Appetizers</h3>
-    <h4 class="food-name">Egg Roll</h4>
-    <img id="food_image" src="/images/eggrolls.jpg">
-    <p class="food-description">Delicious egg roll!</p>
-    <p>$3.00</p>
-    <button><i class="far fa-minus-square"></i></button>
-    <button><i class="far fa-plus-square"></i></button>
-  </section>
+  <ul class="products">
+    <% for(let product of products) { %>
+    <li class="product">
+      <article class="food-menu">
+        <h4 class="food-name"><%= product.name %></h4>
+        <img id="food_image" src="<%= product.food_url %>">
+        <p><%= product.price_cents * 100 %></p>
+        <button><i class="far fa-minus-square"></i></button>
+        <button><i class="far fa-plus-square"></i></button>
+      </article>
+    </li>
+  <% } %>
+  </ul>
 
   </main>
 </body>
