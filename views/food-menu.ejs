@@ -6,9 +6,12 @@
  <title>Summer's Restaurant</title>
  <!-- App CSS -->
  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+ <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
  <!-- ICONS -->
  <script src="https://kit.fontawesome.com/3254a5221a.js" crossorigin="anonymous"></script>
 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="/scripts/app.js"> </script>
 </head>
 
 <body>
@@ -20,15 +23,15 @@
   <%- include('partials/_menu') %>
 
   <article class="food-menu">
-    <!-- <% for(let food of foods) { %>
+    <% for(let food of foods) { %>
     <li class="food">
         <h4 class="food-name"><%= food.name %></h4>
         <img id="food_image" src="<%= food.food_url %>">
         <p><%= food.price_cents / 100 %></p>
-        <button><i class="far fa-minus-square"></i></button>
-        <button><i class="far fa-plus-square"></i></button>
+        <button value="<%=food.id%>" class="decrement-button"><img src="http://simpleicon.com/wp-content/uploads/plus.png"></button>
+        <button value="<%=food.id%>" class="increment-button"><img src="http://simpleicon.com/wp-content/uploads/plus.png"></button>
     </li>
-  <% } %> -->
+  <% } %>
   </article>
 
   </main>
