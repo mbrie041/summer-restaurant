@@ -3,7 +3,7 @@ const router = express.Router();
 
 module.exports = (db) => {
   router.post("/:id/shopping-cart-increment", (req, res) => {
-    console.log("req.session",req.session)
+    console.log("req.session", req.session)
 
 
     db.query(
@@ -15,7 +15,7 @@ module.exports = (db) => {
       WHERE shopping_cart.user_id = ${req.session.userId}
       AND shopping_cart.product_id = ${req.params.id};`
     )
-    .then(res => console.log(res));
+      .then(res => console.log(res));
   });
   return router;
   //INSERT INTO shopping_cart (user_id, product_id, quantity) VALUES (1, 1, 1) ON CONFLICT(product_id, user_id) DO UPDATE SET quantity = shopping_cart.quantity +1;
