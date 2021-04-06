@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+  <script src="./client.js"></script>
  <!-- Meta Information -->
  <title>Summer's Restaurant</title>
  <!-- App CSS -->
@@ -20,7 +21,7 @@
   <%- include('partials/_menu') %>
 
   <article class="food-menu">
-    <!-- <% for(let food of foods) { %>
+    <% for(let food of foods) { %>
     <li class="food">
         <h4 class="food-name"><%= food.name %></h4>
         <img id="food_image" src="<%= food.food_url %>">
@@ -28,7 +29,7 @@
         <button><i class="far fa-minus-square"></i></button>
         <button><i class="far fa-plus-square"></i></button>
     </li>
-  <% } %> -->
+  <% } %>
   </article>
 
   </main>

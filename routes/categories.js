@@ -14,7 +14,7 @@ module.exports = (db) => {
   //displays apps page
   router.get("/apps", (req, res) => {
     return getApps(db).then(function(resolvedFoods){
-      return res.send({foods: resolvedFoods});
+      return res.render("food-menu", {foods: resolvedFoods});
     })
     .catch(err => {
       res
