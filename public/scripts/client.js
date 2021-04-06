@@ -1,16 +1,16 @@
 $(document).ready(() => {
 
 const createFood = (foodsData) => {
-  const newFood = `<li class="product">
-  <article class="food-menu">
+  const $food = $("<article>").addClass(".food-menu");
+  const html = `<li class="product">
     <h4 class="food-name">${foodsData.name}</h4>
     <img id="food_image" src="${foodsData.food_url}">
     <p>${foodsData.price_cents / 100}</p>
     <button><i class="far fa-minus-square"></i></button>
     <button><i class="far fa-plus-square"></i></button>
-  </article>
 </li>`;
-  return newFood
+const foodMenu = $food.append(html);
+return foodMenu;
 }
 
 const renderFoods = (foods) => {

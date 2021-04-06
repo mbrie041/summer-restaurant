@@ -57,29 +57,54 @@ ul{
   border-radius: 0;
   margin-bottom: 0;
 	position: fixed;
-  display: flex;
-  justify-content: space-between;
 	width: 100%;
   top: 0;
+  z-index:10;
 
-#restaurant-icon {
-  padding: 18px;
-  font-size: 24px;
-  border: none;
+  .restaurant-icon {
+    height: 50px;
+    width: 50px;
+    padding: 30px;
+    margin-left: 10px;
+    font-size: 24px;
+    padding: 0;
+    border: none;
+    background: none;
+    float: left;
+  }
+
+  #login {
+    font-size: 24px;
+    height: 50px;
+    border: none;
+    background: none;
+    float: left;
+    margin-left: 20px;
+  }
+
+  #cart-icon {
+    border: none;
+    font-size: 24px;
+    height: 50px;
+    background: none;
+    float: right;
+    margin-right: 50px;
+  }
 }
 
-#login {
-  font-size: 24px;
-  border: none;
+
+#restaurant_main_image {
+  width: 100%;
+  opacity: 70%;
+  margin-top: 90px;
 }
 
-#cart-icon {
-  border: none;
-  font-size: 24px;
+h1 {
+  font-size: 50px;
+  position:absolute;
+	left:50%;
+	top:50%;
 }
-
-}
-
 .food-menu {
   border: solid black;
 }

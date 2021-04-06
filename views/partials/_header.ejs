@@ -1,13 +1,16 @@
+
   <!-- Top nav bar (fixed) -->
-  <nav class="navbar">
-    <form method="GET" action="/"><button><i id="restaurant-icon" class="fas fa-utensils"></i></button></form>
-    <form method="GET" action="/api/users/login" id="login"><button> LOG IN </button></form>
-    <form method="GET" action="/api/users/cart"><button><i id="cart-icon" class="fas fa-shopping-cart"></i></button></form>
-  </nav>
 
   <header class="main-header">
+  <nav class="navbar">
+    <form method="GET" action="/"><button class="restaurant-icon"><img class="restaurant-icon" src='../images/restaurant.png'></i></button></form>
+    <form method="GET" action="/api/users/login"><button id="login"> LOG IN </button></form>
+    <form method="GET" action="/api/users/cart"><button id="cart-icon"><i class="fas fa-shopping-cart"></i></button></form>
+  </nav>
+
     <div>
       <img id="restaurant_main_image" src="/images/restaurant_main.png">
-      <h1>SUMMER'S RESTAURANT</h1>
+      <h1>SUMMER'S
+        <br> RESTAURANT</h1>
     </div>
   </header>

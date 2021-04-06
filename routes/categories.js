@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
-const getAllFood = function(db) {
+
+const getApps = function(db) {
   return db.query(`SELECT * FROM products WHERE isApp IS TRUE;`)
   .then(data => {
     const apps = data.rows;
@@ -12,7 +13,7 @@ const getAllFood = function(db) {
 module.exports = (db) => {
   //displays apps page
   router.get("/apps", (req, res) => {
-    return getAllFood(db).then(function(resolvedFoods){
+    return getApps(db).then(function(resolvedFoods){
       return res.send({foods: resolvedFoods});
     })
     .catch(err => {
