@@ -74,45 +74,49 @@ h1 {
 .menu-display {
   display: flex;
 
-  .menu {
-    border: solid black;
-    list-style: none;
-    margin: 10px;
-    width: 190px;
-    text-align: center;
-    margin-left: 10px;
-    padding: 10px;
-    margin: 20px;
-
-      ul{
-        list-style: none;
-        text-align: center;
-        line-height: 2;
-        color: black;
-        margin:0;
-        padding:0;
+    .intro {
+      position: relative;
+      #intro_image {
+        display: block;
+        width: 100%;
+        opacity: 90%;
+        height: auto;
+      }
+      #intro-message {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 100%;
+        width: 100%;
+        opacity: 0;
+        transition: .5s ease;
       }
     }
 
-  #intro_image {
-    width: 100%;
-    opacity: 80%;
-    width: 100%;
-    position: relative;
-  }
-
-  #intro-message {
-    position:absolute;
-    left:35%;
-    top:100%;
-    font-size: 20px;
-    color:black;
-    margin: 10px;
-    margin-right: 30px;
-    letter-spacing: 3px;
-    background-color: #ffffff;
+    .intro:hover #intro-message {
+      opacity: 1;
     }
-
+    .intro:hover #intro_image {
+      opacity: 0.8;
+    }
+    .intro-text {
+      color: black;
+      font-size: 20px;
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      padding: 60px;
+      text-align: center;
+      background-color: rgba(255,255,255,0.7);
+    }
+    #welcome {
+      font-size: 50px;
+    }
 }
 
 

@@ -1,0 +1,34 @@
+.menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 190px;
+  text-align: center;
+  margin-left: 10px;
+  padding: 10px;
+  margin: 20px;
+  height: 94%;
+
+    ul{
+      list-style: none;
+      text-align: center;
+      line-height: 2;
+      color: black;
+      margin:0;
+      padding:0;
+    }
+  }
+
+
+.menu a {
+  display: block;
+  color: black;
+  padding: 10px;
+  text-decoration: none;
+}
+
+
+.menu a:hover:not(.active) {
+  background-color: darksalmon;
+}
+
