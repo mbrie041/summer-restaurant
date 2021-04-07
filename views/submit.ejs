@@ -24,7 +24,11 @@
           <section class="submit">
             <h3>Order Submitted</h3>
             <p>Please wait while the restaurant confirms your order. </p>
-            <form method="GET" action="/api/orders/${submitOrders.user_id}/orders"><button> Check Your Order </button></form>
+            <% if (submitOrders) { %>
+              <form method="GET" action="/api/orders/<%=submitOrders[0].user_id%>/orders?"><button> Check Your
+                  Orders </button>
+                <% } %>
+              </form>
           </section>
       </div>
     </main>

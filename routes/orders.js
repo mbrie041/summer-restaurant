@@ -64,7 +64,7 @@ module.exports = (db) => {
       .then(data => {
         if (req.params.id = req.session.userId) {
           const clientOrders = data.rows
-          res.render("client-dashboard", {clientOrders})
+          res.render("client-dashboard", { clientOrders })
         }
         else {
           res.send('You are only allowed to see your own orders')
@@ -73,30 +73,33 @@ module.exports = (db) => {
       .catch(err => {
         res
           .status(500)
-          .json({ error: err.message });
+          .json({ error: err.message })
       });
   });
 
   router.post("/checkout", (req, res) => {
     let order;
-    return db.query(`INSERT INTO orders (user_id, order_confirmed) VALUES ($1,'true') RETURNING *`, [req.session.userId])
+    let shoppingCart;
+    return db.query(`INSERT INTO orders (user_id, order_pending) VALUES ($1,'true') RETURNING *`, [req.session.userId])
       .then(data => {
         order = data.rows[0]
         return order
       })
       .then(data => { return db.query(`SELECT * FROM shopping_cart WHERE user_id=$1`, [req.session.userId]) })
-      .then(data => { return data.rows })
-      .then(data => { return db.query(`INSERT INTO items_orders (items_orders.product_id, items_orders.order_id, items_orders.quantity) VALUES (${data.rows.product_id}, ${order.id}, ${data.rows.quantity}) RETURNING*`) })
+      .then(data => {
+        shoppingCart = data.rows
+        return shoppingCart
+      })
+      .then(data => {
+        return db.query(`INSERT INTO items_orders (product_id, order_id, quantity) SELECT shopping_cart.product_id, ${order.id}, shopping_cart.quantity FROM shopping_cart JOIN orders ON orders.user_id = shopping_cart.user_id WHERE shopping_cart.user_id = ${req.session.userId} RETURNING *;`)
+      })
       .then(data => { return db.query(`DELETE FROM shopping_cart WHERE user_id =$1`, [req.session.userId]) })
-      .then(data => { return db.query(`SELECT products.name, items_orders.quantity, products.price, (items_orders.quantity * products.price) as total_price, FROM items_orders JOIN products ON products.id = items_orders.product_id WHERE items_orders.order_id = ${order.id} GROUP BY products.name, items_orders.quantity, products.price_cents`) })
-      .then(data => res.redirect('/checkout/submitted'))
+      .then(data => { return db.query(`SELECT products.name, items_orders.quantity, products.price_cents, (items_orders.quantity * products.price_cents) as total_price FROM items_orders JOIN products ON products.id = items_orders.product_id WHERE items_orders.order_id = ${order.id} GROUP BY products.name, items_orders.quantity, products.price_cents;`) })
+      .then(data => res.redirect('checkout/submitted'))
       .catch(err => {
         console.log('error', err);
         return err;
       });
   })
-
-
-
   return router;
 };
