@@ -100,6 +100,18 @@ module.exports = (db) => {
         console.log('error', err);
         return err;
       });
-  })
+  });
+
+  router.post('/dashboard/confirmation/:id', (req, res) => {
+    return db.query(`UPDATE orders SET order_confirmed=true WHERE id=$1`, [req.params.id])
+      .then(data => {
+        res.redirect('/api/orders/dashboard')
+      })
+      .catch(err => {
+        res
+          .status(500)
+          .json({ error: err.message });
+      });
+  });
   return router;
 };
