@@ -7,6 +7,8 @@
   <title>Summer's Restaurant</title>
   <!-- App CSS -->
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/menu-sidebar.css" type="text/css" />
+
   <link rel="stylesheet" href="/styles/menu.css" type="text/css" />
   <!-- ICONS -->
   <script src="https://kit.fontawesome.com/3254a5221a.js" crossorigin="anonymous"></script>
@@ -35,7 +37,7 @@
                       delicious!!!!
                     </p>
                     <p class="price">
-                      <%= food.price_cents / 100 %>
+                      $<%= food.price_cents / 100 %>
                     </p>
                     <input type="hidden" id="hidden_userID" value= <%= userID %>></input>
                     <button value="<%=food.id%>" class="decrement-button"><img id="minus-button"
