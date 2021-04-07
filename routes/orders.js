@@ -4,9 +4,12 @@
  *   these routes are mounted onto /widgets
  * See: https://expressjs.com/en/guide/using-middleware.html#middleware.router
  */
-
+require('dotenv').config()
 const express = require("express");
 const router = express.Router();
+const accountSid = process.env.TWILIO_ACCOUNT_SID;
+const authToken = process.env.TWILIO_AUTH_TOKEN;
+const client = require('twilio')(accountSid, authToken);
 
 module.exports = (db) => {
   router.get("/checkout", (req, res) => {
@@ -16,8 +19,9 @@ module.exports = (db) => {
     db.query(query, [userID])
       .then((data) => {
         const orders = data.rows;
-        console.log("orders return>>>>", orders);
-        res.render("checkout", { orders, userID });
+        const templateVars = { user: req.session.userId,
+                                orders, userID }
+        res.render("checkout", templateVars);
       })
       .catch((err) => {
         res.status(500).json({ error: err.message });
@@ -31,7 +35,9 @@ module.exports = (db) => {
       .then((data) => {
         if (req.session.userId === 1) {
           const dashOrders = data.rows;
-          res.render("dashboard", { dashOrders });
+          const templateVars = { user: req.session.userId,
+                                  dashOrders }
+          res.render("dashboard", templateVars);
         } else {
           res.send("You are not authorized to access this function");
         }
@@ -47,7 +53,9 @@ module.exports = (db) => {
     db.query(query, [req.session.userId])
       .then((data) => {
         const submitOrders = data.rows;
-        res.render("submit", { submitOrders });
+        const templateVars = { user: req.session.userId,
+                                submitOrders }
+        res.render("submit", templateVars);
       })
       .catch((err) => {
         res.status(500).json({ error: err.message });
@@ -60,7 +68,9 @@ module.exports = (db) => {
       .then((data) => {
         if ((req.params.id = req.session.userId)) {
           const clientOrders = data.rows;
-          res.render("client-dashboard", { clientOrders });
+          const templateVars = { user: req.session.userId,
+                                  clientOrders }
+          res.render("client-dashboard", templateVars);
         } else {
           res.send("You are only allowed to see your own orders");
         }
@@ -106,19 +116,46 @@ module.exports = (db) => {
           `SELECT products.name, items_orders.quantity, products.price_cents, (items_orders.quantity * products.price_cents) as total_price FROM items_orders JOIN products ON products.id = items_orders.product_id WHERE items_orders.order_id = ${order.id} GROUP BY products.name, items_orders.quantity, products.price_cents;`
         );
       })
-      .then((data) => res.redirect("checkout/submitted"))
+      .then((data) => {
+        return db.query(`SELECT * FROM users WHERE id =1`)
+          .then(data => {
+            const phoneNumber = data.rows[0].phone_number;
+            res.redirect("checkout/submitted");
+            console.log(`'${phoneNumber}'`);
+            client.messages
+              .create({
+                body: 'You received a new order request, log into your Admin Dashboard to accept or deny the request.',
+                from: '+12267776716',
+                to: `'${phoneNumber}'`
+              })
+              .then(message => console.log(message.sid))
+          })
+      })
       .catch((err) => {
         console.log("error", err);
         return err;
       });
   });
+
   router.post("/dashboard/confirmation/:id", (req, res) => {
     return db
-      .query(`UPDATE orders SET order_confirmed=true WHERE id=$1`, [
+      .query(`UPDATE orders SET order_confirmed=true WHERE id=$1 RETURNING*`, [
         req.params.id,
       ])
-      .then((data) => {
-        res.redirect("/api/orders/dashboard");
+      .then(data => {
+        const userId = data.rows[0].user_id;
+        return db.query(`SELECT * FROM users WHERE id =$1`, [userId])
+          .then(data => {
+            const phoneNumber = data.rows[0].phone_number;
+            res.redirect("/api/orders/dashboard");
+            client.messages
+              .create({
+                body: 'Your order has been confirmed by the restaurant and will be ready for pick up in 30 minutes',
+                from: '+12267776716',
+                to: `'${phoneNumber}'`
+              })
+              .then(message => console.log(message.sid))
+          })
       })
       .catch((err) => {
         res.status(500).json({ error: err.message });
