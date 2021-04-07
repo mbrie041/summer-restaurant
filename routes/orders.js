@@ -64,7 +64,7 @@ module.exports = (db) => {
       .then(data => {
         if (req.params.id = req.session.userId) {
           const clientOrders = data.rows
-          res.render("client-dashboard", {clientOrders})
+          res.render("client-dashboard", { clientOrders })
         }
         else {
           res.send('You are only allowed to see your own orders')
@@ -73,7 +73,7 @@ module.exports = (db) => {
       .catch(err => {
         res
           .status(500)
-          .json({ error: err.message });
+          .json({ error: err.message })
       });
   });
 

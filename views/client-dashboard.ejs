@@ -18,16 +18,20 @@
     <main>
       <section>
         <h3>Orders Dashboard</h3>
-        <!-- <article>
-          <% for(let clientOrder of clientOrders) { %>
-              <h4> <%= clientOrder.id %></h4>
-              <% if (!clientOrder.order_pending) { %>
-                <p>Order confirmed by the restaurant.</p>
-                <% } else (clientOrder.order_pending) { %>
-                  <p>Order is pending confirmation from the restaurant.</p>
+
+        <% for(let clientOrder of clientOrders) { %>
+          <article>
+            <h4>
+              <%= clientOrder.id %>
+            </h4>
+            <% if (clientOrder.order_pending==='t' ) { %>
+              <p>Order confirmed by the restaurant.</p>
+              <% } else (clientOrder.order_pending==='f' ) { %>
+                <p>Order is pending confirmation from the restaurant.</p>
+          </article>
+          <% } %>
             <% } %>
-        <% } %>
-        </article> -->
+
 
       </section>
     </main>
