@@ -55,7 +55,9 @@ app.use("/api/products", incrementalRoutes(db))
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
-  res.render("home");
+  // res.render("_header", object);
+  const templateVars = { user: req.session.userId }
+  res.render("home", templateVars);
 });
 
 app.listen(PORT, () => {

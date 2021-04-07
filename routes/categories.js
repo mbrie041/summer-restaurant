@@ -39,7 +39,9 @@ module.exports = (db) => {
   router.get("/apps", (req, res) => {
     const userID = req.session.userId || null;
     return getApps(db).then(function(resolvedFoods){
-      return res.render("food-menu", {foods: resolvedFoods, userID});
+      const templateVars = { user: req.session.userId,
+                              foods: resolvedFoods, userID}
+      return res.render("food-menu", templateVars);
     })
     .catch(err => {
       res
@@ -51,7 +53,9 @@ module.exports = (db) => {
   router.get("/dinner", (req, res) => {
     const userID = req.session.userId || null;
     return getDinner(db).then(function(resolvedFoods){
-      return res.render("food-menu", {foods: resolvedFoods, userID});
+      const templateVars = { user: req.session.userId,
+                            foods: resolvedFoods, userID }
+      return res.render("food-menu", templateVars);
     })
     .catch(err => {
       res
@@ -64,7 +68,9 @@ module.exports = (db) => {
   router.get("/desserts", (req, res) => {
     const userID = req.session.userId || null;
     return getDesserts(db).then(function(resolvedFoods){
-      return res.render("food-menu", {foods: resolvedFoods, userID});
+      const templateVars = { user: req.session.userId,
+                              foods: resolvedFoods, userID }
+      return res.render("food-menu", templateVars);
     })
     .catch(err => {
       res
@@ -77,8 +83,10 @@ module.exports = (db) => {
   router.get("/drinks", (req, res) => {
     const userID = req.session.userId || null;
     return getDrinks(db).then(function(resolvedFoods){
-      return res.render("food-menu", {foods: resolvedFoods, userID});
-    })
+      const templateVars = { user: req.session.userId,
+                          foods: resolvedFoods, userID }
+        return res.render("food-menu", templateVars);
+      })
     .catch(err => {
       res
         .status(500)

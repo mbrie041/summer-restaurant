@@ -14,7 +14,8 @@ const router = express.Router();
 
 module.exports = (db) => {
   router.get("/login", (req, res) => {
-    res.render('login')
+    const templateVars = { user: req.session.userId }
+    res.render('login', templateVars)
   });
 
   const getUserWithEmail = function (email) {

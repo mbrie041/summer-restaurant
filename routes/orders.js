@@ -16,8 +16,9 @@ module.exports = (db) => {
     db.query(query, [userID])
       .then((data) => {
         const orders = data.rows;
-        console.log("orders return>>>>", orders);
-        res.render("checkout", { orders, userID });
+        const templateVars = { user: req.session.userId,
+                                orders, userID }
+        res.render("checkout", templateVars);
       })
       .catch((err) => {
         res.status(500).json({ error: err.message });
@@ -31,7 +32,9 @@ module.exports = (db) => {
       .then((data) => {
         if (req.session.userId === 1) {
           const dashOrders = data.rows;
-          res.render("dashboard", { dashOrders });
+          const templateVars = { user: req.session.userId,
+                                  dashOrders }
+          res.render("dashboard", templateVars);
         } else {
           res.send("You are not authorized to access this function");
         }
@@ -47,7 +50,9 @@ module.exports = (db) => {
     db.query(query, [req.session.userId])
       .then((data) => {
         const submitOrders = data.rows;
-        res.render("submit", { submitOrders });
+        const templateVars = { user: req.session.userId,
+                                submitOrders }
+        res.render("submit", templateVars);
       })
       .catch((err) => {
         res.status(500).json({ error: err.message });
@@ -60,7 +65,9 @@ module.exports = (db) => {
       .then((data) => {
         if ((req.params.id = req.session.userId)) {
           const clientOrders = data.rows;
-          res.render("client-dashboard", { clientOrders });
+          const templateVars = { user: req.session.userId,
+                                  clientOrders }
+          res.render("client-dashboard", templateVars);
         } else {
           res.send("You are only allowed to see your own orders");
         }
