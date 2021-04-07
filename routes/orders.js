@@ -91,7 +91,7 @@ module.exports = (db) => {
         return shoppingCart
       })
       .then(data => {
-        return shoppingCart.forEach(() => db.query(`INSERT INTO items_orders (product_id, order_id, quantity) SELECT shopping_cart.product_id, ${order.id}, shopping_cart.quantity FROM shopping_cart JOIN orders ON orders.user_id = shopping_cart.user_id WHERE shopping_cart.user_id = ${req.session.userId} RETURNING *;`))
+        return db.query(`INSERT INTO items_orders (product_id, order_id, quantity) SELECT shopping_cart.product_id, ${order.id}, shopping_cart.quantity FROM shopping_cart JOIN orders ON orders.user_id = shopping_cart.user_id WHERE shopping_cart.user_id = ${req.session.userId} RETURNING *;`)
       })
       .then(data => { return db.query(`DELETE FROM shopping_cart WHERE user_id =$1`, [req.session.userId]) })
       .then(data => { return db.query(`SELECT products.name, items_orders.quantity, products.price_cents, (items_orders.quantity * products.price_cents) as total_price FROM items_orders JOIN products ON products.id = items_orders.product_id WHERE items_orders.order_id = ${order.id} GROUP BY products.name, items_orders.quantity, products.price_cents;`) })
@@ -101,6 +101,5 @@ module.exports = (db) => {
         return err;
       });
   })
-
   return router;
 };

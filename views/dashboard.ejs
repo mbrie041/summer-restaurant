@@ -20,9 +20,11 @@
         <h3>Orders Dashboard</h3>
         <article>
           <% for(let dashOrder of dashOrders) { %>
-              <h4><%= dashOrder.id %></h4>
-              <button type="submit">Comfirm</button>
-        <% } %>
+            <h4>
+              <%= dashOrder.id %>
+            </h4>
+            <button type="submit">Confirm</button>
+            <% } %>
         </article>
       </section>
     </main>
