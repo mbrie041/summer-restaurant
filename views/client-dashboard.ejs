@@ -24,10 +24,12 @@
             <h4>
               <%= clientOrder.id %>
             </h4>
-            <% if (clientOrder.order_pending==='t' ) { %>
+            <% if (clientOrder.order_pending===true && clientOrder.order_confirmed===true ) { %>
               <p>Order confirmed by the restaurant.</p>
-              <% } else { %>
+              <% } else if(clientOrder.order_pending===true && clientOrder.order_confirmed===false ) { %>
                 <p>Order is pending confirmation from the restaurant.</p>
+                <% } else { %>
+                  <p>You have not placed an order yet!</p>
           </article>
           <% } %>
             <% } %>

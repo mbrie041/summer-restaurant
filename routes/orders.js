@@ -79,7 +79,7 @@ module.exports = (db) => {
 
   router.post("/checkout", (req, res) => {
     let order;
-    return db.query(`INSERT INTO orders (user_id, order_confirmed) VALUES ($1,'true') RETURNING *`, [req.session.userId])
+    return db.query(`INSERT INTO orders (user_id, order_pending) VALUES ($1,'true') RETURNING *`, [req.session.userId])
       .then(data => {
         order = data.rows[0]
         return order
