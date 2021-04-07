@@ -23,21 +23,25 @@
       <section class="menu-container">
         <div class="menu-display">
           <%- include('partials/_menu') %>
-
             <article class="food-menu">
               <% for(let food of foods) { %>
-                <div class="menu-div">
-                  <h4 class="food-name">
-                    <%= food.name %>
-                  </h4>
-                  <img id="food_image" src="<%= food.food_url %>">
-                  <p>
-                    <%= food.price_cents / 100 %>
-                  </p>
-                  <button value="<%=food.id%>" class="decrement-button"><img
-                      src="http://simpleicon.com/wp-content/uploads/plus.png"></button>
-                  <button value="<%=food.id%>" class="increment-button"><img
-                      src="http://simpleicon.com/wp-content/uploads/plus.png"></button>
+                <div class="each-food">
+                    <img id="food-image" src="<%= food.food_url %>">
+                    <div class="food-text">
+                      <h4 class="food-name">
+                        <%= food.name %>
+                      </h4>
+                    <p class="description">
+                      delicious!!!!
+                    </p>
+                    <p class="price">
+                      <%= food.price_cents / 100 %>
+                    </p>
+                    <button value="<%=food.id%>" class="decrement-button"><img id="minus-button"
+                        src="/images/decrement-button.png"></button>
+                    <button value="<%=food.id%>" class="increment-button"><img id="plus-button"
+                        src="/images/increment-button.png"></button>
+                </div>
                 </div>
                 <% } %>
             </article>

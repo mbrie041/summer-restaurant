@@ -1,5 +1,120 @@
-.menu-div {
+.menu-container {
   border: solid black;
   height: 30px;
-  width: auto;
+  width: 100%;
+  min-height: 1000px;
+  grid-template-columns: repeat(2, calc(((100% - 1140px) / 2)  + 555px));
+  grid-template-rows: repeat(2, auto);
+  grid-gap: 30px;
+  margin: 20px 0 0;
+  padding-top: 0;
+  display: flex;
+  position: relative;
+  flex: 1;
+  max-width: 100%;
+
+  .each-food {
+    background-image: none;
+    margin: 5px;
+    margin-top: 20px;
+    width: 400px;
+    height: 230px;
+    padding: 10px;
+    font-weight: inherit;
+    display: inline-block;
+    border: solid black;
+    vertical-align:middle;
+
+    #food-image {
+      width: 200px;
+      height: 180px;
+      margin: 0;
+      padding-top: 20px;
+      object-fit: cover;
+      display: inline-block;
+      background-size: cover;
+      background-position: 50% 50%;
+      background-repeat: no-repeat;
+      text-align: center;
+    }
+
+    .food-text {
+      width: 160px;
+      padding: 10px;
+      min-height: 140px;
+      margin: 0 0 0 0;
+      padding: 0;
+      display: inline-block;
+      vertical-align: text-bottom;
+      flex-direction: column;
+      text-align: right;
+
+      .food-name {
+        margin: 10px 0 0;
+        padding: 0;
+        font-weight: bold;
+        font-size: 20px;
+        line-height: 1.2;
+        font-family: serif;
+        text-align: right;
+      }
+      .description {
+        font-style: italic;
+        margin: 20px 0 0 auto;
+      }
+
+      .price {
+        font-weight: 700;
+        margin: 20px;
+      }
+    }
+  }
 }
+
+
+
+button :focus {
+  outline: thin dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+
+
+#plus-button {
+  height: 40px;
+  width: 40px;
+  margin:0;
+  border-style: none;
+  background-image: none;
+  display: table;
+  cursor: pointer;
+  text-decoration: none;
+  align-self: flex-start;
+}
+
+#minus-button {
+  height: 40px;
+  width: 40px;
+  margin:0;
+  border-style: none;
+  background-image: none;
+  display: table;
+  cursor: pointer;
+  text-decoration: none;
+  align-self: flex-start;
+}
+
+.decrement-button {
+  border: 0 none transparent;
+  outline-width: 0;
+  background-color: transparent;
+  border-radius: 0;
+}
+
+.increment-button {
+  border: 0 none transparent;
+  outline-width: 0;
+  background-color: transparent;
+  border-radius: 0;
+}
+
