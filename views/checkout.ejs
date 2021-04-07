@@ -6,6 +6,9 @@
   <title>Summer's Restaurant</title>
   <!-- App CSS -->
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/menu.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/checkout.css" type="text/css" />
+
   <!-- ICONS -->
   <script src="https://kit.fontawesome.com/3254a5221a.js" crossorigin="anonymous"></script>
 
@@ -19,22 +22,25 @@
 
     <!-- Page-specific (main) content here -->
     <main>
-      <div class="menu-display">
+      <section class="menu-container">
+        <div class="menu-display">
         <%- include('partials/_menu') %>
-
-          <section class="cart">
-
-            <article>
+          <article>
               <h3>Cart</h3>
               <% for(let order of orders) { %>
-                  <h4><%= order.name %></h4>
-                  <img src="<%= order.food_url %>">
-                  <p><%= order.price_cents / 100 %></p>
-                  <button value="<%=order.id%>" class="decrement-button"><img src="http://simpleicon.com/wp-content/uploads/plus.png"></button>
-                  <button value="<%=order.id%>" class="increment-button"><img src="http://simpleicon.com/wp-content/uploads/plus.png"></button>
-                  <button><i class="fas fa-times"></i></button>
+                <div class="each-item">
+                  <img class="item-image" src="<%= order.food_url %>">
+                  <div class="item-text">
+                  <h4 class="item-name"><%= order.name %></h4>
+                  <p class="price">$<%= order.price_cents / 100 %></p>
+                  <button value="<%=order.id%>" class="decrement-button"><img id="minus-button" src="/images/decrement-button.png"></button>
+                  <button value="<%=order.id%>" class="increment-button"><img id="plus-button" src="/images/increment-button.png"></button>
+                </div>
+              </div>
               <% } %>
               <form method="POST" action="/api/orders/checkout"><button>Submit</button></form>
+            </article>
+        </div>
           </section>
       </div>
     </main>

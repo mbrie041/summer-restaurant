@@ -25,18 +25,18 @@
     border: solid black;
     vertical-align:middle;
 
-    #food-image {
-      width: 200px;
-      height: 180px;
-      margin: 0;
-      padding-top: 20px;
-      object-fit: cover;
-      display: inline-block;
-      background-size: cover;
-      background-position: 50% 50%;
-      background-repeat: no-repeat;
-      text-align: center;
-    }
+      .food-image {
+        width: 200px;
+        height: 180px;
+        margin: 0;
+        padding-top: 20px;
+        object-fit: cover;
+        display: inline-block;
+        background-size: cover;
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+        text-align: center;
+      }
 
     .food-text {
       width: 160px;
