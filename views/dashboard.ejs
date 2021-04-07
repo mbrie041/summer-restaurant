@@ -24,7 +24,9 @@
             <h4>
               <%= dashOrder.id %>
             </h4>
-            <button type="submit">Confirm</button>
+
+            <form method="POST" action="/api/orders/dashboard/confirmation/<%= dashOrder.id %>"><button
+                type="submit">Confirm order</button></form>
             <% } %>
         </article>
       </section>
