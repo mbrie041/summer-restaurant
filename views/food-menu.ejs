@@ -3,36 +3,47 @@
 
 <head>
   <script src="./client.js"></script>
- <!-- Meta Information -->
- <title>Summer's Restaurant</title>
- <!-- App CSS -->
- <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
- <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
- <!-- ICONS -->
- <script src="https://kit.fontawesome.com/3254a5221a.js" crossorigin="anonymous"></script>
+  <!-- Meta Information -->
+  <title>Summer's Restaurant</title>
+  <!-- App CSS -->
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/menu.css" type="text/css" />
+  <!-- ICONS -->
+  <script src="https://kit.fontawesome.com/3254a5221a.js" crossorigin="anonymous"></script>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script type="text/javascript" src="/scripts/app.js"> </script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script type="text/javascript" src="/scripts/app.js"> </script>
 </head>
 
 <body>
   <%- include('partials/_header') %>
 
-  <!-- Page-specific (main) content here -->
-  <main>
-    <div class="menu-display">
-  <%- include('partials/_menu') %>
+    <!-- Page-specific (main) content here -->
+    <main>
+      <section class="menu-container">
+        <div class="menu-display">
+          <%- include('partials/_menu') %>
 
-  <article class="food-menu">
-    <% for(let food of foods) { %>
-        <h4 class="food-name"><%= food.name %></h4>
-        <img id="food_image" src="<%= food.food_url %>">
-        <p><%= food.price_cents / 100 %></p>
-        <button value="<%=food.id%>" class="decrement-button"><img src="http://simpleicon.com/wp-content/uploads/plus.png"></button>
-        <button value="<%=food.id%>" class="increment-button"><img src="http://simpleicon.com/wp-content/uploads/plus.png"></button>
-  <% } %>
-  </article>
-</div>
-  </main>
+            <article class="food-menu">
+              <% for(let food of foods) { %>
+                <div class="menu-div">
+                  <h4 class="food-name">
+                    <%= food.name %>
+                  </h4>
+                  <img id="food_image" src="<%= food.food_url %>">
+                  <p>
+                    <%= food.price_cents / 100 %>
+                  </p>
+                  <button value="<%=food.id%>" class="decrement-button"><img
+                      src="http://simpleicon.com/wp-content/uploads/plus.png"></button>
+                  <button value="<%=food.id%>" class="increment-button"><img
+                      src="http://simpleicon.com/wp-content/uploads/plus.png"></button>
+                </div>
+                <% } %>
+            </article>
+        </div>
+      </section>
+    </main>
 </body>
+
 </html>
