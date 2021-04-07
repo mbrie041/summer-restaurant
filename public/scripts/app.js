@@ -5,7 +5,7 @@ $(document).ready(function () {
     console.log("event target value",event.currentTarget.value);
   $.post(`/api/products/${event.currentTarget.value}/shopping-cart-increment`).then((results) => {
     console.log("post was done", results);
-    $(this).siblings(".textclass").html(results.results.quantity)
+    $(this).siblings(".textbox").html(results.results.quantity)
    });
   } else {
     window.location.replace("/api/users/login?");
@@ -16,9 +16,13 @@ $(document).ready(function () {
     const userID = $('#hidden_userID').val();
     if(userID){
     console.log("event target value",event.currentTarget.value);
-  $.post(`/api/products/${event.currentTarget.value}/shopping-cart-decrement`).then(() => {
-    console.log("post was done");
-    // $(this).siblings(".textclass").html(results.results.quantity)
+  $.post(`/api/products/${event.currentTarget.value}/shopping-cart-decrement`).then((results) => {
+    console.log("post was done", results);
+    if(results.results) {
+    $(this).siblings(".textbox").html(results.results.quantity)
+    } else {
+      $(this).siblings(".textbox").html(0)
+    }
    });
   } else {
     window.location.replace("/api/users/login?");
