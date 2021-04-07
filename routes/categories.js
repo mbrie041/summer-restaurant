@@ -37,8 +37,9 @@ const getDrinks = function(db) {
 module.exports = (db) => {
   //displays apps page
   router.get("/apps", (req, res) => {
+    const userID = req.session.userId || null;
     return getApps(db).then(function(resolvedFoods){
-      return res.render("food-menu", {foods: resolvedFoods});
+      return res.render("food-menu", {foods: resolvedFoods, userID});
     })
     .catch(err => {
       res
@@ -48,8 +49,9 @@ module.exports = (db) => {
   });
   //displays dinner page
   router.get("/dinner", (req, res) => {
+    const userID = req.session.userId || null;
     return getDinner(db).then(function(resolvedFoods){
-      return res.render("food-menu", {foods: resolvedFoods});
+      return res.render("food-menu", {foods: resolvedFoods, userID});
     })
     .catch(err => {
       res
@@ -60,8 +62,9 @@ module.exports = (db) => {
 
   //displays desserts page
   router.get("/desserts", (req, res) => {
+    const userID = req.session.userId || null;
     return getDesserts(db).then(function(resolvedFoods){
-      return res.render("food-menu", {foods: resolvedFoods});
+      return res.render("food-menu", {foods: resolvedFoods, userID});
     })
     .catch(err => {
       res
@@ -72,8 +75,9 @@ module.exports = (db) => {
 
   //displays drinks page
   router.get("/drinks", (req, res) => {
+    const userID = req.session.userId || null;
     return getDrinks(db).then(function(resolvedFoods){
-      return res.render("food-menu", {foods: resolvedFoods});
+      return res.render("food-menu", {foods: resolvedFoods, userID});
     })
     .catch(err => {
       res

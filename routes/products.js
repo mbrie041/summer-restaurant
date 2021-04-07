@@ -11,40 +11,41 @@ module.exports = (db) => {
       SET quantity = shopping_cart.quantity + 1
       WHERE shopping_cart.user_id = ${req.session.userId}
       AND shopping_cart.product_id = ${req.params.id};`
-    ).then(() => (res.status(200).end()))
+    ).then(() => res.status(200).end());
   });
 
   router.post("/:id/shopping-cart-decrement", (req, res) => {
-    const firstQuery =  `SELECT * FROM shopping_cart
+    const firstQuery = `SELECT * FROM shopping_cart
     WHERE user_id = ${req.session.userId}
     AND product_id = ${req.params.id}
-    ;`
+    ;`;
     console.log(firstQuery);
-    return db.query(firstQuery)
-    .then((data) => {
-      if(!data.rows[0]){
-        return;
-      }
-      if (data.rows[0].quantity > 1) {
-        const queryString = `
+    return db
+      .query(firstQuery)
+      .then((data) => {
+        if (!data.rows[0]) {
+          return;
+        }
+        if (data.rows[0].quantity > 1) {
+          const queryString = `
         UPDATE shopping_cart
         SET quantity = shopping_cart.quantity - 1
         WHERE user_id = ${req.session.userId}
         AND product_id = ${req.params.id};
         `;
-        console.log(queryString);
-        return db.query(queryString);
-      }
-      if ((data.rows[0].quantity === 1)) {
-        return db.query(`
+          console.log(queryString);
+          return db.query(queryString);
+        }
+        if (data.rows[0].quantity === 1) {
+          return db.query(`
           DELETE FROM shopping_cart
           WHERE user_id = ${req.session.userId}
           AND product_id = ${req.params.id};
           `);
-      }
-
-    }).then(() => (res.status(200).end()))
-    .catch(e=>(console.log(e)))
+        }
+      })
+      .then(() => res.status(200).end())
+      .catch((e) => console.log(e));
   });
   return router;
 };

@@ -33,6 +33,7 @@
                   <div class="item-text">
                   <h4 class="item-name"><%= order.name %></h4>
                   <p class="price">$<%= order.price_cents / 100 %></p>
+                  <input type="hidden" id="hidden_userID" value= <%= userID %>></input>
                   <button value="<%=order.id%>" class="decrement-button"><img id="minus-button" src="/images/decrement-button.png"></button>
                   <button value="<%=order.id%>" class="increment-button"><img id="plus-button" src="/images/increment-button.png"></button>
                 </div>

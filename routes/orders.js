@@ -10,12 +10,14 @@ const router = express.Router();
 
 module.exports = (db) => {
   router.get("/checkout", (req, res) => {
-    let query = `SELECT products.name, products.price_cents, products.food_url, shopping_cart.user_id, shopping_cart.quantity FROM products JOIN shopping_cart ON products.id=product_id WHERE user_id = $1`;
+    const userID = req.session.userId || null;
+    let query = `SELECT products.name, products.id, products.price_cents, products.food_url, shopping_cart.user_id, shopping_cart.quantity FROM products JOIN shopping_cart ON products.id=product_id WHERE user_id = $1`;
     // console.log(query);
-    db.query(query, [req.session.userId])
+    db.query(query, [userID])
       .then(data => {
         const orders = data.rows;
-        res.render("checkout", { orders });
+        console.log("orders return>>>>",orders)
+        res.render("checkout", { orders, userID });
       })
       .catch(err => {
         res

@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <script src="./client.js"></script>
+  <!-- <script src="./client.js"></script> -->
   <!-- Meta Information -->
   <title>Summer's Restaurant</title>
   <!-- App CSS -->
@@ -37,6 +37,7 @@
                     <p class="price">
                       <%= food.price_cents / 100 %>
                     </p>
+                    <input type="hidden" id="hidden_userID" value= <%= userID %>></input>
                     <button value="<%=food.id%>" class="decrement-button"><img id="minus-button"
                         src="/images/decrement-button.png"></button>
                     <button value="<%=food.id%>" class="increment-button"><img id="plus-button"
