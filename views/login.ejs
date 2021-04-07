@@ -7,6 +7,7 @@
   <title>Summer's Restaurant</title>
   <!-- App CSS -->
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/menu-sidebar.css" type="text/css" />
 
   <!-- ICONS -->
   <script src="https://kit.fontawesome.com/3254a5221a.js" crossorigin="anonymous"></script>
@@ -22,7 +23,9 @@
       <!-- main menu -->
       <div class="menu-display">
         <%- include('partials/_menu') %>
+      <div class="login">
           <h3>Login</h3>
+
           <div class="form-group mb-2">
             <form method="POST" action="/api/users/login" class="form-inline">
               <label for="email">Enter an email:</label>
@@ -38,6 +41,7 @@
           </div>
           </form>
       </div>
+    </div>
     </main>
     <!-- Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
