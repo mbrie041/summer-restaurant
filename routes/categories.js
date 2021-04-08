@@ -49,7 +49,9 @@ module.exports = (db) => {
     return getMain(db).then(function (resolvedFoods) {
       const templateVars = {
         user: req.session.userId,
-        foods: resolvedFoods, userID
+        foods: resolvedFoods, userID,
+        cart: req.cart,
+        cartPrice : req.cartPrice
       }
       return res.render("food-menu", templateVars);
     })
@@ -66,7 +68,9 @@ module.exports = (db) => {
     return getApps(db).then(function (resolvedFoods) {
       const templateVars = {
         user: req.session.userId,
-        foods: resolvedFoods, userID
+        foods: resolvedFoods, userID,
+        cart: req.cart,
+        cartPrice : req.cartPrice
       }
       return res.render("food-menu", templateVars);
     })
@@ -82,7 +86,9 @@ module.exports = (db) => {
     return getDinner(db).then(function (resolvedFoods) {
       const templateVars = {
         user: req.session.userId,
-        foods: resolvedFoods, userID
+        foods: resolvedFoods, userID,
+        cart: req.cart,
+        cartPrice : req.cartPrice
       }
       return res.render("food-menu", templateVars);
     })
@@ -99,7 +105,9 @@ module.exports = (db) => {
     return getDesserts(db).then(function (resolvedFoods) {
       const templateVars = {
         user: req.session.userId,
-        foods: resolvedFoods, userID
+        foods: resolvedFoods, userID,
+        cart: req.cart,
+        cartPrice : req.cartPrice
       }
       return res.render("food-menu", templateVars);
     })
@@ -116,7 +124,9 @@ module.exports = (db) => {
     return getDrinks(db).then(function (resolvedFoods) {
       const templateVars = {
         user: req.session.userId,
-        foods: resolvedFoods, userID
+        foods: resolvedFoods, userID,
+        cart: req.cart,
+        cartPrice : req.cartPrice
       }
       return res.render("food-menu", templateVars);
     })

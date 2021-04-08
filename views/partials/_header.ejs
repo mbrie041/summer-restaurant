@@ -30,11 +30,15 @@
     <% if (user === 1) { %>
       <form method="GET" action="/api/orders/checkout"><button id="cart-icon"><i class="fas fa-shopping-cart"></i></button></form>
      <form method="GET" action="/api/orders/dashboard"><button class="nav-button">Dashboard</button></form>
+     <span id="cartID"> <%=locals.cart ? locals.cart :0%></span>
+     <span id="priceID"> <%=locals.cartPrice ? locals.cartPrice :0%></span>
      <form method="GET" action="/api/users/logout"><button class="nav-button">Logout</button></form>
     <%} %>
     <% if (user && user !== 1) {%>
       <form method="GET" action="/api/orders/checkout"><button id="cart-icon"><i class="fas fa-shopping-cart"></i></button></form>
       <form method="GET" action="/api/orders/<%= user %>/orders"><button class="nav-button">Orders</button></form>
+      <span id="cartID"> <%=locals.cart ? locals.cart :0%></span>
+      <span id="priceID"> <%=locals.cartPrice ? locals.cartPrice :0%></span>
       <form method="GET" action="/api/users/logout"><button class="nav-button">Logout</button></form>
 
     <% } %>
