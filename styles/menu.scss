@@ -21,18 +21,18 @@
     margin: 5px;
     background-color: white;
     margin-top: 20px;
-    width: 370px;
-    height: 220px;
+    width: 300px;
+    height:160px;
     padding: 10px;
     font-weight: inherit;
     display: inline-block;
     vertical-align:middle;
 
       .food-image {
-        width: 200px;
-        height: 180px;
+        width: 130px;
+        height: 120px;
         margin: 0;
-        padding-top: 20px;
+        padding: 0;
         object-fit: cover;
         display: inline-block;
         background-size: cover;
@@ -42,29 +42,37 @@
       }
 
     .food-text {
-      width: 160px;
-      padding: 10px;
+      width: 130px;
+      padding: 0px;
       min-height: 140px;
-      margin: 0 0 0 0;
+      margin-left: 30px;
       padding: 0;
-      display: inline-block;
+      display: inline-flex;
       vertical-align: text-bottom;
       flex-direction: column;
-      text-align: right;
+      text-align: center;
 
       .food-name {
-        margin: 10px 0 0;
+        margin: 0;
         padding: 0;
         font-weight: bold;
         font-size: 20px;
-        line-height: 1.2;
+        line-height: 1.5;
         font-family: serif;
-        text-align: right;
+        text-align: center;
         font-family: Oswald;
       }
+
       .description {
         font-style: italic;
         margin: 20px 0 0 auto;
+      }
+
+      .minus-plus {
+        display: flex;
+        float: right;
+        margin-left: 25px;
+        text-align: center;
       }
 
       .price {
@@ -87,8 +95,8 @@ button :focus {
 
 
 #plus-button {
-  height: 40px;
-  width: 40px;
+  height: 25px;
+  width: 25px;
   margin:0;
   border-style: none;
   background-image: none;
@@ -99,8 +107,8 @@ button :focus {
 }
 
 #minus-button {
-  height: 40px;
-  width: 40px;
+  height: 25px;
+  width: 25px;
   margin:0;
   border-style: none;
   background-image: none;
@@ -129,7 +137,6 @@ button :focus {
 @media only screen and (min-width: 1024px) {
   .menu-container {
     width: 90%;
-    text-align: center;
     margin-top: 50px;
     display: block;
     margin-left: auto;
