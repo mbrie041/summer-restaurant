@@ -12,17 +12,21 @@
   position: relative;
   flex: 1;
   max-width: 100%;
+  background-color: rgba(196, 181, 181, 0.3);
+
+
 
   .each-food {
     background-image: none;
     margin: 5px;
+    background-color: white;
     margin-top: 20px;
     width: 400px;
     height: 230px;
     padding: 10px;
     font-weight: inherit;
     display: inline-block;
-    border: solid black;
+
     vertical-align:middle;
 
       .food-image {
@@ -118,3 +122,16 @@ button :focus {
   border-radius: 0;
 }
 
+
+/* Desktop */
+@media only screen and (min-width: 1024px) {
+  .menu-container {
+    width: 90%;
+    text-align: center;
+    margin-top: 50px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 100%;
+  }
+ }

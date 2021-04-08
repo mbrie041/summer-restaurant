@@ -6,6 +6,19 @@ button:focus{
 	outline: none;
 }
 
+button:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  background: #555555;
+  border: none;
+  cursor: pointer;
+}
+
+.restaurant-icon:hover {
+  border: none;
+  box-shadow: none;
+  cursor: pointer;
+}
+
 .navbar{
   border: none;
   background: #ffffff;
@@ -16,6 +29,22 @@ button:focus{
 	width: 100%;
   top: 0;
   z-index:10;
+
+  .nav-text {
+    font-size: 22px;
+    font-family: Orbitron;
+    margin-left: 75px;
+    margin-top: 0;
+  }
+
+  #cart-icon {
+    border: none;
+    font-size: 24px;
+    height: 50px;
+    background: none;
+    float: right;
+    margin-right: 50px;
+  }
 
   .restaurant-icon {
     height: 50px;
@@ -31,47 +60,38 @@ button:focus{
 
 
   .nav-button {
-    font-size: 24px;
+    font-size: 25px;
     height: 50px;
     border: none;
-    background: none;
-    float: left;
-    padding: 10px;
-    margin-left: 15px;
-    font-family: antonio;
-  }
-
-  #cart-icon {
-    border: none;
-    font-size: 24px;
-    height: 50px;
-    background: none;
+    border-bottom: solid black;
+    background: white;
     float: right;
-    margin-right: 50px;
+    padding: 10px;
+    margin-right: 30px;
+    font-family: Bebas Neue;
   }
 }
 
 
 #restaurant_main_image {
   width: 100%;
-  opacity: 80%;
+  opacity: 70%;
   margin-top: 90px;
 }
 
 h1 {
-  font-size: 50px;
+  font-size: 70px;
   position:absolute;
-	left:35%;
-	top:30%;
-  font-family: abril Fatface;
+	left:20%;
+	top:35%;
+  font-family: Dancing Script;
   font-weight: bold;
-  color: #ffffff;
-  margin: 10px;
+  color: white;
+  margin: auto;
   letter-spacing: 3px;
   display: flex;
   align-items: center；
 }
-
 
 
 .menu-display {
@@ -94,6 +114,7 @@ h1 {
         height: 100%;
         width: 100%;
         opacity: 1;
+        font-family: Bebas Neue;
         transition: .5s ease;
       }
     }
@@ -111,7 +132,8 @@ h1 {
       -webkit-transform: translate(-50%, -50%);
       -ms-transform: translate(-50%, -50%);
       transform: translate(-50%, -50%);
-      padding: 60px;
+      padding: 40px;
+      padding-top: 20px;
       text-align: center;
       background-color: rgba(255,255,255,0.7);
     }
@@ -140,3 +162,37 @@ h1 {
   font-weight: bold;
   color: red;
 }
+
+/* tablets */
+// @media only screen and (min-width: 768px) {
+
+// }
+
+/* Desktop */
+@media only screen and (min-width: 1024px) {
+  #restaurant_main_image {
+    width: 90%;
+    text-align: center;
+    opacity: 70%;
+    margin-top: 90px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  h1 {
+    font-size: 70px;
+    position:absolute;
+    left:30%;
+    top:40%;
+    margin: auto;
+    display: block;
+    font-family: Dancing Script;
+    font-weight: bold;
+    color: white;
+    margin: auto;
+    letter-spacing: 3px;
+    display: flex;
+    align-items: center；
+  }
+ }

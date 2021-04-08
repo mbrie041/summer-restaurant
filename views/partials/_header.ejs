@@ -1,20 +1,38 @@
-
+<head>
+  <!-- Meta Information -->
+  <title>Summer's Restaurant</title>
+  <!-- App CSS -->
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/menu-sidebar.css" type="text/css" />
+  <!-- fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=RocknRoll+One&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Orbitron&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+  <!-- ICONS -->
+  <script src="https://kit.fontawesome.com/3254a5221a.js" crossorigin="anonymous"></script>
+</head>
   <!-- Top nav bar (fixed) -->
 
   <header class="main-header">
   <nav class="navbar">
-    <form method="GET" action="/"><button class="restaurant-icon"><img class="restaurant-icon" src='/images/restaurant.png'></i></button></form>
+    <form method="GET" action="/"><button class="restaurant-icon"><img class="restaurant-icon" src='/images/restaurant.png'><h2 class="nav-text">Summer's Restaurant</h2></button></form>
     <% if (!user) { %>
-    <form method="GET" action="/api/users/login"><button class="nav-button"> LOGIN </button></form>
+    <form method="GET" action="/api/users/login"><button class="nav-button"> Login </button></form>
     <% } %>
     <% if (user === 1) { %>
+      <form method="GET" action="/api/orders/checkout"><button id="cart-icon"><i class="fas fa-shopping-cart"></i></button></form>
      <form method="GET" action="/api/orders/dashboard"><button class="nav-button">Dashboard</button></form>
-     <form method="GET" action="/api/orders/checkout"><button id="cart-icon"><i class="fas fa-shopping-cart"></i></button></form>
      <form method="GET" action="/api/users/logout"><button class="nav-button">Logout</button></form>
     <%} %>
     <% if (user && user !== 1) {%>
-      <form method="GET" action="/api/orders/<%= user %>/orders"><button class="nav-button">Dashboard</button></form>
       <form method="GET" action="/api/orders/checkout"><button id="cart-icon"><i class="fas fa-shopping-cart"></i></button></form>
+      <form method="GET" action="/api/orders/<%= user %>/orders"><button class="nav-button">Orders</button></form>
       <form method="GET" action="/api/users/logout"><button class="nav-button">Logout</button></form>
 
     <% } %>
@@ -22,8 +40,8 @@
 
     <div>
       <img id="restaurant_main_image" src="/images/restaurant_main.png">
-      <h1>SUMMER'S
-        <br> RESTAURANT</h1>
+      <h1>Summer's Restaurant</h1>
+      <!-- <img class="summer-restaurant-icon" src="/images/summer-restaurant-icon.png"> -->
     </div>
   </header>
 
