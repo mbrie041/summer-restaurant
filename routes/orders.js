@@ -20,7 +20,9 @@ module.exports = (db) => {
       .then((data) => {
         const orders = data.rows;
         const templateVars = { user: req.session.userId,
-                                orders, userID }
+                                orders, userID,
+                                cart: req.cart,
+                                cartPrice : req.cartPrice }
         res.render("checkout", templateVars);
       })
       .catch((err) => {
@@ -36,7 +38,9 @@ module.exports = (db) => {
         if (req.session.userId === 1) {
           const dashOrders = data.rows;
           const templateVars = { user: req.session.userId,
-                                  dashOrders }
+                                  dashOrders,
+                                  cart: req.cart,
+                                  cartPrice : req.cartPrice }
           res.render("dashboard", templateVars);
         } else {
           res.send("You are not authorized to access this function");
@@ -54,7 +58,9 @@ module.exports = (db) => {
       .then((data) => {
         const submitOrders = data.rows;
         const templateVars = { user: req.session.userId,
-                                submitOrders }
+                                submitOrders,
+                                cart: req.cart,
+                                cartPrice : req.cartPrice }
         res.render("submit", templateVars);
       })
       .catch((err) => {
@@ -69,7 +75,9 @@ module.exports = (db) => {
         if ((req.params.id = req.session.userId)) {
           const clientOrders = data.rows;
           const templateVars = { user: req.session.userId,
-                                  clientOrders }
+                                  clientOrders,
+                                  cart: req.cart,
+                                  cartPrice : req.cartPrice }
           res.render("client-dashboard", templateVars);
         } else {
           res.send("You are only allowed to see your own orders");

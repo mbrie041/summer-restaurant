@@ -13,7 +13,7 @@ $(document).ready(function () {
         $("#cartID").text(cartCount)
 
         let cartPrice = Number($("#priceID").text());
-        let priceToAdd = Number($(this).siblings(".price").text());
+        let priceToAdd = Number($(this).parents().siblings(".price").text());
 
         console.log("priceToAdd>>>", priceToAdd)
         let displayedPrice = priceToAdd + cartPrice
@@ -43,7 +43,7 @@ $(document).ready(function () {
           $("#cartID").text(cartCount)
 
           let cartPrice = Number($("#priceID").text());
-          let priceToAdd = Number($(this).siblings(".price").text());
+          let priceToAdd = Number($(this).parents().siblings(".price").text());
 
           console.log("priceToAdd>>>", priceToAdd)
           let displayedPrice = cartPrice - priceToAdd
