@@ -128,4 +128,23 @@ h1 {
     }
 }
 
+.h3-title {
+  text-align: center;
+  font-size: 30px;
+}
 
+.each-order {
+  border: solid black;
+  padding: 10px;
+  margin: 10px;
+}
+
+#order-confirm {
+  font-weight: bold;
+  color: rgb(16, 90, 16);
+}
+
+#order-pending {
+  font-weight: bold;
+  color: red;
+}

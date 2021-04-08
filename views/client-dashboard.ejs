@@ -18,20 +18,26 @@
     <!-- Page-specific (main) content here -->
     <main>
       <section>
-        <h3>Orders Dashboard</h3>
+        <h3 class="h3-title">Orders Dashboard  <i class="fas fa-clipboard-list"></i></h3>
 
         <% for(let clientOrder of clientOrders) { %>
+
           <article>
-            <h4>
-              <%= clientOrder.id %>
-            </h4>
+            <div class="each-order">
             <% if (clientOrder.order_pending===true && clientOrder.order_confirmed===true ) { %>
-              <p>Order confirmed by the restaurant.</p>
+              <p>Order Number: <%= clientOrder.id %></p>
+              <p>Order Submitted At: <%= clientOrder.order_time %></p>
+              <p id="order-confirm">Order Status: Confirmed by the restaurant.</p>
+            </div>
+            <div class="each-order">
               <% } else if(clientOrder.order_pending===true && clientOrder.order_confirmed===false ) { %>
-                <p>Order is pending confirmation from the restaurant.</p>
+                <p>Order Number: <%= clientOrder.id %></p>
+                <p>Order Submitted At: <%= clientOrder.order_time %></p>
+                <p id="order-pending">Order Status: Pending confirmation from the restaurant.</p>
+                </div>
                 <% } else { %>
                   <p>You have not placed an order yet!</p>
-          </article>
+                </article>
           <% } %>
             <% } %>
 
