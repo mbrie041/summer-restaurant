@@ -1,20 +1,29 @@
+
+#cart-title {
+  font-family: Orbitron;
+  font-size: 35px;
+  text-align: center;
+}
+
 .each-item {
   background-image: none;
   margin: 5px;
+  background-color: white;
   margin-top: 20px;
   width: 400px;
-  height: 230px;
+  height:160px;
   padding: 10px;
   font-weight: inherit;
   display: inline-block;
-  border: solid black;
   vertical-align:middle;
+  box-shadow: 1.5px 1.5px 1.5px 1.5px #262931;
 
   .item-image {
-    width: 200px;
-    height: 180px;
+    width: 150px;
+    height: 120px;
     margin: 0;
-    padding-top: 20px;
+    padding: 0;
+    margin-left: 10px;
     object-fit: cover;
     display: inline-block;
     background-size: cover;
@@ -24,41 +33,52 @@
   }
 
   .item-text {
-    width: 160px;
-    padding: 10px;
+    width: 130px;
+    padding: 0px;
     min-height: 140px;
-    margin: 0 0 0 0;
+    margin-left: 70px;
     padding: 0;
-    display: inline-block;
+    display: inline-flex;
     vertical-align: text-bottom;
     flex-direction: column;
-    text-align: right;
+    text-align: center;
 
     .item-name {
-      margin: 10px 0 0;
+      margin: 0;
       padding: 0;
       font-weight: bold;
       font-size: 20px;
-      line-height: 1.2;
+      line-height: 1.5;
       font-family: serif;
-      text-align: right;
-    }
-    .description {
-      font-style: italic;
-      margin: 20px 0 0 auto;
+      text-align: center;
+      font-family: Oswald;
     }
 
     .price {
-      font-weight: 700;
+      font-weight: bold;
+      font-size: 20px;
       margin: 20px;
+      font-family: Bebas Neue;
     }
   }
 }
+
+.cart-display {
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .submit-button {
-  background-color: #4056A1;
+  background-color: black;
+  font-size: 20px;
   color: #FFFFFF;
-  padding: 5px 8px;
-  margin: 10px;
+  padding: 3px 5px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  font-family: Bebas Neue;
+  float: right;
 }
 .submit-button:hover {
   box-shadow: 1px 1px 1px 1px #262931;

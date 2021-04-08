@@ -26,6 +26,8 @@
     font-weight: inherit;
     display: inline-block;
     vertical-align:middle;
+    box-shadow: 1.5px 1.5px 1.5px 1.5px #262931;
+
 
       .food-image {
         width: 130px;
@@ -62,18 +64,6 @@
         font-family: Oswald;
       }
 
-      .description {
-        font-style: italic;
-        margin: 20px 0 0 auto;
-      }
-
-      .minus-plus {
-        display: flex;
-        float: right;
-        margin-left: 25px;
-        text-align: center;
-      }
-
       .price {
         font-weight: bold;
         font-size: 20px;
@@ -82,6 +72,13 @@
       }
     }
   }
+}
+
+.minus-plus {
+  display: flex;
+  float: right;
+  margin-left: 25px;
+  text-align: center;
 }
 
 
