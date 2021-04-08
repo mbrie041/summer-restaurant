@@ -34,10 +34,8 @@
                       <%= food.name %>
                     </h4>
                     <div>
-                      $
-                    </div>
                     <p class="price">
-                      <%= food.price_cents / 100 %>
+                      $<%= food.price_cents / 100 %>
                     </p>
                     <input type="hidden" id="hidden_userID" value=<%=userID %>></input>
                     <div class="minus-plus">
