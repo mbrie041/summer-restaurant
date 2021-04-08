@@ -28,24 +28,24 @@
             <article class="food-menu">
               <% for(let food of foods) { %>
                 <div class="each-food">
-                    <img class="food-image" src="<%= food.food_url %>">
-                    <div class="food-text">
-                      <h4 class="food-name">
-                        <%= food.name %>
-                      </h4>
-                      <div>$</div>
+                  <img class="food-image" src="<%= food.food_url %>">
+                  <div class="food-text">
+                    <h4 class="food-name">
+                      <%= food.name %>
+                    </h4>
                     <p class="price">
-
                       <%= food.price_cents / 100 %>
                     </p>
-                    <input type="hidden" id="hidden_userID" value= <%= userID %>></input>
+                    <input type="hidden" id="hidden_userID" value=<%=userID %>></input>
+
                     <button value="<%=food.id%>" class="decrement-button"><img id="minus-button"
-                        src="/images/decrement-button.png"></button>
-                        <div class="textbox"> 0 </div>
+                       src="/images/decrement-button.png"></button>
+                    <div class="textbox"> 0 </div>
                     <button value="<%=food.id%>" class="increment-button"><img id="plus-button"
-                        src="/images/increment-button.png"></button>
-                </div>
-                </div>
+                       src="/images/increment-button.png"></button>
+                    </div>
+                  </div>
+
                 <% } %>
             </article>
         </div>
