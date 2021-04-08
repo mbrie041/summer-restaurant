@@ -1,6 +1,5 @@
 <html lang="en">
 <!DOCTYPE html>
-<html lang="en">
 
 <head>
   <!-- Meta Information -->
@@ -8,7 +7,7 @@
   <!-- App CSS -->
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
   <link rel="stylesheet" href="/styles/menu-sidebar.css" type="text/css" />
-
+  <link rel="stylesheet" href="/styles/login.css" type="text/css" />
   <!-- ICONS -->
   <script src="https://kit.fontawesome.com/3254a5221a.js" crossorigin="anonymous"></script>
 
@@ -19,40 +18,27 @@
 
     <!-- Page-specific (main) content here -->
 
-    <main style="margin: 1em;">
+    <main>
       <!-- main menu -->
       <div class="menu-display">
         <%- include('partials/_menu') %>
-      <div class="login">
-          <h3>Login</h3>
+          <div class="login">
+            <h3 id="login-text">Login</h3>
 
-          <div class="form-group mb-2">
-            <form method="POST" action="/api/users/login" class="form-inline">
-              <label for="email">Enter an email:</label>
-              <input class="form-right" type="text" name="email" placeholder="Enter an email"
-                style="width: 300px; margin: 1em">
-              <br>
-              <label for="password">Enter a password:</label>
-              <input class="form-control" type="password" name="password" placeholder="Enter a password"
-                style="width: 300px; margin: 1em">
-              <br>
-              <button type="submit" class="btn btn-primary">Login</button>
-            </form>
+            <div>
+              <form method="POST" action="/api/users/login">
+                <label for="email">Enter an email:</label>
+                <input type="text" name="email" placeholder="Enter an email" style="width: 300px; margin: 2em">
+                <br>
+                <label for="password">Enter a password:</label>
+                <input type="password" name="password" placeholder="Enter a password" style="width: 300px; margin: 1em">
+                <br>
+                <button type="submit" id="login-button">Login</button>
+              </form>
+            </div>
           </div>
-          </form>
       </div>
-    </div>
     </main>
-    <!-- Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-      crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-      crossorigin="anonymous"></script>
 </body>
 
 </html>

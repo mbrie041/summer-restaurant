@@ -1,6 +1,5 @@
 .menu-container {
-  border: solid black;
-  height: 30px;
+  height: 100%;
   width: 100%;
   min-height: 1000px;
   grid-template-columns: repeat(2, calc(((100% - 1140px) / 2)  + 555px));
@@ -12,7 +11,7 @@
   position: relative;
   flex: 1;
   max-width: 100%;
-  background-color: rgba(196, 181, 181, 0.3);
+  background-color: rgba(241, 184, 131, 0.5);
 
 
 
