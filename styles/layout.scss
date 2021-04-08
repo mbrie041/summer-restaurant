@@ -7,8 +7,6 @@ button:focus{
 }
 
 button:hover {
-  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-  background: #555555;
   border: none;
   cursor: pointer;
 }
@@ -67,7 +65,7 @@ button:hover {
     background: white;
     float: right;
     padding: 10px;
-    margin-right: 30px;
+    margin-right: 50px;
     font-family: Bebas Neue;
   }
 }
@@ -195,4 +193,18 @@ h1 {
     display: flex;
     align-items: center；
   }
+  .menu-display {
+    display: flex;
+    width: 95%;
+    margin-top: 10px;
+      .intro {
+        position: relative;
+        #intro_image {
+          display: block;
+          width: 100%;
+          opacity: 90%;
+          height: auto;
+        }
+      }
+    }
  }

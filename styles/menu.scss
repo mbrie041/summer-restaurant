@@ -21,12 +21,11 @@
     margin: 5px;
     background-color: white;
     margin-top: 20px;
-    width: 400px;
-    height: 230px;
+    width: 370px;
+    height: 220px;
     padding: 10px;
     font-weight: inherit;
     display: inline-block;
-
     vertical-align:middle;
 
       .food-image {
@@ -61,6 +60,7 @@
         line-height: 1.2;
         font-family: serif;
         text-align: right;
+        font-family: Oswald;
       }
       .description {
         font-style: italic;
@@ -68,8 +68,10 @@
       }
 
       .price {
-        font-weight: 700;
+        font-weight: bold;
+        font-size: 20px;
         margin: 20px;
+        font-family: Bebas Neue;
       }
     }
   }
