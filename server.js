@@ -43,6 +43,26 @@ const incrementalRoutes = require("./routes/products");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
+app.use((req, res, next) => {
+  const userID = req.session.userId || null;
+  if(userID){
+  let query = `
+  SELECT products.name, products.id, products.price_cents, products.food_url, shopping_cart.user_id, shopping_cart.quantity
+  FROM products
+  JOIN shopping_cart ON products.id=product_id
+  WHERE user_id = $1`;
+  // console.log(query);
+  db.query(query, [userID])
+    .then((data) => {
+      let qty = 0;
+      data.rows.forEach(item => qty += item.quantity)
+      req.cart = qty
+      next()
+    })
+  } else {
+    next()
+  }
+})
 app.use("/api/users", usersRoutes(db));
 app.use("/api/categories", categoriesRoutes(db));
 app.use("/api/orders", ordersRoutes(db));
@@ -56,7 +76,7 @@ app.use("/api/products", incrementalRoutes(db))
 // Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
   // res.render("_header", object);
-  const templateVars = { user: req.session.userId }
+  const templateVars = { user: req.session.userId, cart: req.cart }
   res.render("home", templateVars);
 });
 

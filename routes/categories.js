@@ -66,8 +66,10 @@ module.exports = (db) => {
     return getApps(db).then(function (resolvedFoods) {
       const templateVars = {
         user: req.session.userId,
-        foods: resolvedFoods, userID
+        foods: resolvedFoods, userID,
+        cart: req.cart
       }
+      console.log(req.cart);
       return res.render("food-menu", templateVars);
     })
       .catch(err => {

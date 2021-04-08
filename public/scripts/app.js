@@ -6,6 +6,10 @@ $(document).ready(function () {
   $.post(`/api/products/${event.currentTarget.value}/shopping-cart-increment`).then((results) => {
     console.log("post was done", results);
     $(this).siblings(".textbox").html(results.results.quantity)
+    let cartCount = Number($("#cartID").text());
+    console.log("cart count>>>",cartCount)
+    cartCount++
+    $("#cartID").text(cartCount)
    });
   } else {
     window.location.replace("/api/users/login?");
@@ -20,6 +24,10 @@ $(document).ready(function () {
     console.log("post was done", results);
     if(results.results) {
     $(this).siblings(".textbox").html(results.results.quantity)
+    let cartCount = Number($("#cartID").text());
+    console.log("cart count>>>",cartCount)
+    cartCount--
+    $("#cartID").text(cartCount)
     } else {
       $(this).siblings(".textbox").html(0)
     }
