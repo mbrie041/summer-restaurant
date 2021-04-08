@@ -55,8 +55,11 @@ app.use((req, res, next) => {
   db.query(query, [userID])
     .then((data) => {
       let qty = 0;
+      let price =0;
       data.rows.forEach(item => qty += item.quantity)
+      data.rows.forEach(item => price += (item.price_cents/100 * item.quantity))
       req.cart = qty
+      req.cartPrice = price
       next()
     })
   } else {
@@ -76,7 +79,7 @@ app.use("/api/products", incrementalRoutes(db))
 // Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
   // res.render("_header", object);
-  const templateVars = { user: req.session.userId, cart: req.cart }
+  const templateVars = { user: req.session.userId, cart: req.cart, cartPrice : req.cartPrice }
   res.render("home", templateVars);
 });
 

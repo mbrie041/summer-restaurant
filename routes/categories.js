@@ -67,7 +67,8 @@ module.exports = (db) => {
       const templateVars = {
         user: req.session.userId,
         foods: resolvedFoods, userID,
-        cart: req.cart
+        cart: req.cart,
+        cartPrice : req.cartPrice
       }
       console.log(req.cart);
       return res.render("food-menu", templateVars);
