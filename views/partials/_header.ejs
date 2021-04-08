@@ -8,14 +8,15 @@
     <form method="GET" action="/api/users/login"><button class="nav-button"> LOGIN </button></form>
     <% } %>
     <% if (user === 1) { %>
-     <p class="nav-button">LOGGED IN</p>
      <form method="GET" action="/api/orders/dashboard"><button class="nav-button">Dashboard</button></form>
      <form method="GET" action="/api/orders/checkout"><button id="cart-icon"><i class="fas fa-shopping-cart"></i></button></form>
+     <form method="GET" action="/api/users/logout"><button class="nav-button">Logout</button></form>
     <%} %>
     <% if (user && user !== 1) {%>
-      <p class="nav-button">LOGGED IN</p>
       <form method="GET" action="/api/orders/<%= user %>/orders"><button class="nav-button">Dashboard</button></form>
       <form method="GET" action="/api/orders/checkout"><button id="cart-icon"><i class="fas fa-shopping-cart"></i></button></form>
+      <form method="GET" action="/api/users/logout"><button class="nav-button">Logout</button></form>
+
     <% } %>
   </nav>
 

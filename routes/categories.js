@@ -1,6 +1,13 @@
 const express = require("express");
 const router = express.Router();
 
+const getMain = function (db) {
+  return db.query(`SELECT * FROM products;`)
+    .then(data => {
+      const apps = data.rows;
+      return apps;
+    })
+}
 
 const getApps = function (db) {
   return db.query(`SELECT * FROM products WHERE isApp IS TRUE;`)
@@ -35,6 +42,24 @@ const getDrinks = function (db) {
 }
 
 module.exports = (db) => {
+  //displays main menu
+
+  router.get("/main", (req, res) => {
+    const userID = req.session.userId || null;
+    return getMain(db).then(function (resolvedFoods) {
+      const templateVars = {
+        user: req.session.userId,
+        foods: resolvedFoods, userID
+      }
+      return res.render("food-menu", templateVars);
+    })
+      .catch(err => {
+        res
+          .status(500)
+          .json({ error: err.message });
+      });
+  });
+
   //displays apps page
   router.get("/apps", (req, res) => {
     const userID = req.session.userId || null;

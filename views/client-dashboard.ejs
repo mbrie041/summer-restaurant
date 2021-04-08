@@ -23,23 +23,26 @@
         <% for(let clientOrder of clientOrders) { %>
 
           <article>
-            <div class="each-order">
             <% if (clientOrder.order_pending===true && clientOrder.order_confirmed===true ) { %>
+              <div class="each-order">
               <p>Order Number: <%= clientOrder.id %></p>
               <p>Order Submitted At: <%= clientOrder.order_time %></p>
               <p id="order-confirm">Order Status: Confirmed by the restaurant.</p>
             </div>
-            <div class="each-order">
-              <% } else if(clientOrder.order_pending===true && clientOrder.order_confirmed===false ) { %>
+              <% } %>
+              <% if(clientOrder.order_pending===true && clientOrder.order_confirmed===false ) { %>
+                <div class="each-order">
                 <p>Order Number: <%= clientOrder.id %></p>
                 <p>Order Submitted At: <%= clientOrder.order_time %></p>
                 <p id="order-pending">Order Status: Pending confirmation from the restaurant.</p>
-                </div>
-                <% } else { %>
-                  <p>You have not placed an order yet!</p>
-                </article>
+              </div>
+                <% } %>
+
+                <!-- <% if(!clientOrder.user_id) { %>
+                  <p>You don't have any orders to display.</p>
+                  <% } %> -->
+              </article>
           <% } %>
-            <% } %>
 
 
       </section>

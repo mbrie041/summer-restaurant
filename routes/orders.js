@@ -29,7 +29,7 @@ module.exports = (db) => {
   });
 
   router.get("/dashboard", (req, res) => {
-    let query = `SELECT * FROM orders WHERE order_confirmed=false`;
+    let query = `SELECT orders.id, orders.order_time, SUM(items_orders.quantity*products.price_cents) AS total FROM orders JOIN items_orders ON orders.id = order_id JOIN products ON items_orders.product_id = products.id WHERE order_confirmed=false GROUP BY orders.id;`;
     // console.log(query);
     db.query(query)
       .then((data) => {

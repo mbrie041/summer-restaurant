@@ -19,14 +19,16 @@
     <main>
       <section>
         <h3>Orders Dashboard</h3>
+
         <article>
           <% for(let dashOrder of dashOrders) { %>
-            <h4>
-              <%= dashOrder.id %>
-            </h4>
-
+            <div class="each-order">
+              <p>Order Number: <%= dashOrder.id %></p>
+              <p>Order Submitted At: <%= dashOrder.order_time %></p>
+              <p>Order Total: $<%= dashOrder.total / 100 %></p>
             <form method="POST" action="/api/orders/dashboard/confirmation/<%= dashOrder.id %>"><button
                 type="submit">Confirm order</button></form>
+              </div>
             <% } %>
         </article>
       </section>
