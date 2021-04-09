@@ -11,9 +11,9 @@ Created by Mike Brierley (@mbrie041), Lucas Pinheiro (@lucasapin), and Summer Zh
 
 ## Final Product
 
-!["Screenshot of home page"]
-!["Screenshot of main-menu page"]
-!["Screenshot of order-dashboard page"]
+!["Screenshot of home page"](https://github.com/mbrie041/summer-restaurant/blob/add-readme/public/images/screenshots/Screen%20Shot%202021-04-10%20at%2012.46.16%20AM.png?raw=true)
+!["Screenshot of main-menu page"](https://github.com/mbrie041/summer-restaurant/blob/add-readme/public/images/screenshots/Screen%20Shot%202021-04-10%20at%2012.46.38%20AM.png?raw=true)
+!["Screenshot of order-dashboard page"](https://github.com/mbrie041/summer-restaurant/blob/add-readme/public/images/screenshots/Screen%20Shot%202021-04-10%20at%2012.50.34%20AM.png?raw=true)
 
 ## Getting Started
 
@@ -24,8 +24,17 @@ Created by Mike Brierley (@mbrie041), Lucas Pinheiro (@lucasapin), and Summer Zh
 
 ## Dependencies
 
-- Express
-- Node 5.10.x or above
 - body-parser
 - chance
-
+- chalk
+- cookie-session
+- dotenv
+- ejs
+- eslint
+- express
+- jquery
+- morgan
+- node-sass-middleware
+- pg
+- pg-native
+- twilio
