@@ -1,52 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <!-- Meta Information -->
+    <title>Summer's Restaurant</title>
+    <!-- App CSS -->
+    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
 
-<head>
-  <!-- Meta Information -->
-  <title>Summer's Restaurant</title>
-  <!-- App CSS -->
-  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <!-- ICONS -->
+    <script
+      src="https://kit.fontawesome.com/3254a5221a.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
 
-  <!-- ICONS -->
-  <script src="https://kit.fontawesome.com/3254a5221a.js" crossorigin="anonymous"></script>
-
-</head>
-
-<body>
-  <%- include('partials/_header') %>
+  <body>
+    <%- include('partials/_header') %>
 
     <!-- Page-specific (main) content here -->
     <main>
       <section>
-        <h3 class="h3-title">Orders Dashboard  <i class="fas fa-clipboard-list"></i></h3>
+        <h3 class="h3-title">
+          Orders Dashboard <i class="fas fa-clipboard-list"></i>
+        </h3>
 
         <% for(let clientOrder of clientOrders) { %>
 
-          <article>
-            <% if (clientOrder.order_pending===true && clientOrder.order_confirmed===true ) { %>
-              <div class="each-order">
-              <p>Order Number: <%= clientOrder.id %></p>
-              <p>Order Submitted At: <%= clientOrder.order_time %></p>
-              <p id="order-confirm">Order Status: Confirmed by the restaurant.</p>
-            </div>
-              <% } %>
-              <% if(clientOrder.order_pending===true && clientOrder.order_confirmed===false ) { %>
-                <div class="each-order">
-                <p>Order Number: <%= clientOrder.id %></p>
-                <p>Order Submitted At: <%= clientOrder.order_time %></p>
-                <p id="order-pending">Order Status: Pending confirmation from the restaurant.</p>
-              </div>
-                <% } %>
-
-                <!-- <% if(!clientOrder.user_id) { %>
-                  <p>You don't have any orders to display.</p>
-                  <% } %> -->
-              </article>
+        <article>
+          <% if (clientOrder.order_pending===true &&
+          clientOrder.order_confirmed===true ) { %>
+          <div class="each-order">
+            <p>Order Number: <%= clientOrder.id %></p>
+            <p>Order Submitted At: <%= clientOrder.order_time %></p>
+            <p id="order-confirm">Order Status: Confirmed by the restaurant.</p>
+          </div>
+          <% } %> <% if(clientOrder.order_pending===true &&
+          clientOrder.order_confirmed===false ) { %>
+          <div class="each-order">
+            <p>Order Number: <%= clientOrder.id %></p>
+            <p>Order Submitted At: <%= clientOrder.order_time %></p>
+            <p id="order-pending">
+              Order Status: Pending confirmation from the restaurant.
+            </p>
+          </div>
           <% } %>
-
-
+        </article>
+        <% } %>
       </section>
     </main>
-</body>
-
+  </body>
 </html>

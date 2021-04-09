@@ -13,7 +13,6 @@ module.exports = (db) => {
       AND shopping_cart.product_id = ${req.params.id}
       RETURNING *;`
     ).then((data) => {
-      // console.log("returned data>>>", data);
       let results = data.rows[0];
       res.status(200).send({ results });
     });
@@ -52,7 +51,8 @@ module.exports = (db) => {
       })
       .then((data) => {
         let results = data.rows[0];
-        res.status(200).send({ results })})
+        res.status(200).send({ results });
+      })
       .catch((e) => console.log(e));
   });
   return router;

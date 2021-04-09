@@ -1,20 +1,22 @@
 <html lang="en">
-<!DOCTYPE html>
+  <!DOCTYPE html>
 
-<head>
-  <!-- Meta Information -->
-  <title>Summer's Restaurant</title>
-  <!-- App CSS -->
-  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-  <link rel="stylesheet" href="/styles/menu-sidebar.css" type="text/css" />
-  <link rel="stylesheet" href="/styles/login.css" type="text/css" />
-  <!-- ICONS -->
-  <script src="https://kit.fontawesome.com/3254a5221a.js" crossorigin="anonymous"></script>
+  <head>
+    <!-- Meta Information -->
+    <title>Summer's Restaurant</title>
+    <!-- App CSS -->
+    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/menu-sidebar.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/login.css" type="text/css" />
+    <!-- ICONS -->
+    <script
+      src="https://kit.fontawesome.com/3254a5221a.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
 
-</head>
-
-<body>
-  <%- include('partials/_header') %>
+  <body>
+    <%- include('partials/_header') %>
 
     <!-- Page-specific (main) content here -->
 
@@ -22,23 +24,32 @@
       <!-- main menu -->
       <div class="menu-display">
         <%- include('partials/_menu') %>
-          <div class="login">
-            <h3 id="login-text">Login</h3>
+        <div class="login">
+          <h3 id="login-text">Login</h3>
 
-            <div>
-              <form method="POST" action="/api/users/login">
-                <label for="email">Enter an email:</label>
-                <input type="text" name="email" placeholder="Enter an email" style="width: 300px; margin: 2em">
-                <br>
-                <label for="password">Enter a password:</label>
-                <input type="password" name="password" placeholder="Enter a password" style="width: 300px; margin: 1em">
-                <br>
-                <button type="submit" class="login-button">Login</button>
-              </form>
-            </div>
+          <div>
+            <form method="POST" action="/api/users/login">
+              <label for="email">Enter an email:</label>
+              <input
+                type="text"
+                name="email"
+                placeholder="Enter an email"
+                style="width: 300px; margin: 2em"
+              />
+              <br />
+              <label for="password">Enter a password:</label>
+              <input
+                type="password"
+                name="password"
+                placeholder="Enter a password"
+                style="width: 300px; margin: 1em"
+              />
+              <br />
+              <button type="submit" class="login-button">Login</button>
+            </form>
           </div>
+        </div>
       </div>
     </main>
-</body>
-
+  </body>
 </html>

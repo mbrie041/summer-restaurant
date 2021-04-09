@@ -1,14 +1,11 @@
-// See: https://sass-lang.com/
-
-// header
 body {
   display: flex;
   width: 100%;
   flex-direction: column;
-  }
+}
 
-button:focus{
-	outline: none;
+button:focus {
+  outline: none;
 }
 
 button:hover {
@@ -22,16 +19,16 @@ button:hover {
   cursor: pointer;
 }
 
-.navbar{
+.navbar {
   border: none;
   background: #ffffff;
   padding: 15px 0;
   border-radius: 0;
   margin-bottom: 0;
-	position: fixed;
-	width: 100%;
+  position: fixed;
+  width: 100%;
   top: 0;
-  z-index:10;
+  z-index: 10;
 
   .quantity {
     font-size: 20px;
@@ -74,7 +71,6 @@ button:hover {
     float: left;
   }
 
-
   .nav-button {
     font-size: 25px;
     height: 50px;
@@ -88,7 +84,6 @@ button:hover {
   }
 }
 
-
 #restaurant_main_image {
   width: 100%;
   opacity: 70%;
@@ -101,70 +96,69 @@ button:hover {
 
 h1 {
   font-size: 70px;
-      position: absolute;
-      top: 20%;
-      left: 50%;
-      font-family: Dancing Script;
-      font-weight: bold;
-      color: white;
-      -webkit-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
-      transform: translate(-50%, -50%);
-      padding: 40px;
-      padding-top: 20px;
-      text-align: center;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  font-family: Dancing Script;
+  font-weight: bold;
+  color: white;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  padding: 40px;
+  padding-top: 20px;
+  text-align: center;
 }
-
 
 .menu-display {
   display: flex;
 
-    .intro {
-      position: relative;
-      #intro_image {
-        display: block;
-        width: 100%;
-        opacity: 90%;
-        height: auto;
-      }
-      #intro-message {
-        position: absolute;
-        display: block;
-        width: 100%;
-        height: auto;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: 100%;
-        width: 100%;
-        opacity: 1;
-        font-family: Bebas Neue;
-        transition: .5s ease;
-      }
+  .intro {
+    position: relative;
+    #intro_image {
+      display: block;
+      width: 100%;
+      opacity: 90%;
+      height: auto;
     }
-
-    .intro:hover #intro-message {
-      opacity: 1;
-    }
-
-    .intro-text {
-      color: black;
-      font-size: 20px;
+    #intro-message {
       position: absolute;
-      top: 40%;
-      left: 50%;
-      -webkit-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
-      transform: translate(-50%, -50%);
-      padding: 40px;
-      padding-top: 20px;
-      text-align: center;
-      background-color: rgba(255,255,255,0.7);
+      display: block;
+      width: 100%;
+      height: auto;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 100%;
+      width: 100%;
+      opacity: 1;
+      font-family: Bebas Neue;
+      transition: 0.5s ease;
     }
-    #welcome {
-      font-size: 50px;
-    }
+  }
+
+  .intro:hover #intro-message {
+    opacity: 1;
+  }
+
+  .intro-text {
+    color: black;
+    font-size: 20px;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    padding: 40px;
+    padding-top: 20px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.7);
+  }
+  #welcome {
+    font-size: 50px;
+  }
 }
 
 .h3-title {
@@ -193,7 +187,7 @@ h1 {
   color: red;
 }
 
-.submit{
+.submit {
   width: 85%;
   font-size: 20px;
   margin-left: auto;
@@ -222,18 +216,18 @@ h1 {
 
   h1 {
     font-size: 70px;
-        position: absolute;
-        top: 30%;
-        left: 50%;
-        font-family: Dancing Script;
-        font-weight: bold;
-        color: white;
-        -webkit-transform: translate(-50%, -50%);
-        -ms-transform: translate(-50%, -50%);
-        transform: translate(-50%, -50%);
-        padding: 40px;
-        padding-top: 20px;
-        text-align: center;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    font-family: Dancing Script;
+    font-weight: bold;
+    color: white;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    padding: 40px;
+    padding-top: 20px;
+    text-align: center;
   }
   .menu-display {
     display: flex;
@@ -244,39 +238,38 @@ h1 {
     margin-left: auto;
     margin-right: auto;
 
-      .intro {
-        position: relative;
+    .intro {
+      position: relative;
+      display: block;
+      width: 100%;
+      height: auto;
+      #intro_image {
         display: block;
         width: 100%;
+        opacity: 90%;
         height: auto;
-        #intro_image {
-          display: block;
-          width: 100%;
-          opacity: 90%;
-          height: auto;
-          margin-left: auto;
-          margin-right: auto;
-        }
+        margin-left: auto;
+        margin-right: auto;
       }
     }
- }
+  }
+}
 
-
- /* Larger Desktop */
+/* Larger Desktop */
 @media only screen and (min-width: 1024px) {
   h1 {
     font-size: 100px;
-        position: absolute;
-        top: 30%;
-        left: 50%;
-        font-family: Dancing Script;
-        font-weight: bold;
-        color: white;
-        -webkit-transform: translate(-50%, -50%);
-        -ms-transform: translate(-50%, -50%);
-        transform: translate(-50%, -50%);
-        padding: 40px;
-        padding-top: 20px;
-        text-align: center;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    font-family: Dancing Script;
+    font-weight: bold;
+    color: white;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    padding: 40px;
+    padding-top: 20px;
+    text-align: center;
   }
 }

@@ -1,39 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <!-- Meta Information -->
+    <title>Summer's Restaurant</title>
+    <!-- App CSS -->
+    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/login.css" type="text/css" />
 
-<head>
-  <!-- Meta Information -->
-  <title>Summer's Restaurant</title>
-  <!-- App CSS -->
-  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-  <link rel="stylesheet" href="/styles/login.css" type="text/css" />
+    <!-- ICONS -->
+    <script
+      src="https://kit.fontawesome.com/3254a5221a.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
 
-  <!-- ICONS -->
-  <script src="https://kit.fontawesome.com/3254a5221a.js" crossorigin="anonymous"></script>
-
-</head>
-
-<body>
-  <%- include('partials/_header') %>
+  <body>
+    <%- include('partials/_header') %>
 
     <!-- Page-specific (main) content here -->
     <main>
       <section>
-        <h3 class="h3-title">Orders Dashboard <i class="fas fa-clipboard-list"></i></h3>
+        <h3 class="h3-title">
+          Orders Dashboard <i class="fas fa-clipboard-list"></i>
+        </h3>
 
         <article>
           <% for(let dashOrder of dashOrders) { %>
-            <div class="each-order">
-              <p>Order Number: <%= dashOrder.id %></p>
-              <p>Order Submitted At: <%= dashOrder.order_time %></p>
-              <p>Order Total: $<%= dashOrder.total / 100 %></p>
-            <form method="POST" action="/api/orders/dashboard/confirmation/<%= dashOrder.id %>"><button
-                type="submit" class="login-button">Confirm order</button></form>
-              </div>
-            <% } %>
+          <div class="each-order">
+            <p>Order Number: <%= dashOrder.id %></p>
+            <p>Order Submitted At: <%= dashOrder.order_time %></p>
+            <p>Order Total: $<%= dashOrder.total / 100 %></p>
+            <form
+              method="POST"
+              action="/api/orders/dashboard/confirmation/<%= dashOrder.id %>"
+            >
+              <button type="submit" class="login-button">Confirm order</button>
+            </form>
+          </div>
+          <% } %>
         </article>
       </section>
     </main>
-</body>
-
+  </body>
 </html>
