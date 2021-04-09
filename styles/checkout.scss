@@ -58,10 +58,13 @@
       font-weight: bold;
       font-size: 20px;
       margin: 20px;
+      margin-left: 4px;
       font-family: Bebas Neue;
     }
   }
 }
+
+// #priceID
 
 .cart-display {
   display: flex;
@@ -82,4 +85,34 @@
 }
 .submit-button:hover {
   box-shadow: 1px 1px 1px 1px #262931;
+}
+
+
+.total-price {
+  display: flex;
+  font-family: Bebas Neue;
+  padding: 8px;
+  margin:20px;
+  font-size: 20px;
+  width: 100px;
+  text-align: center;
+  background-color: darksalmon;
+}
+
+#priceID {
+  padding-top: 20px;
+}
+.each-price {
+  display: flex;
+  justify-content: center;
+}
+
+#dollar-sign {
+  padding-top: 6px;
+  font-weight: bold;
+  padding-left: 10px;
+}
+
+.price {
+  margin: 0;
 }

@@ -1,7 +1,6 @@
 .menu-container {
   height: 100%;
   width: 100%;
-  min-height: 1000px;
   grid-template-columns: repeat(2, calc(((100% - 1140px) / 2)  + 555px));
   grid-template-rows: repeat(2, auto);
   grid-gap: 30px;

@@ -33,18 +33,23 @@
                   <img class="item-image" src="<%= order.food_url %>">
                   <div class="item-text">
                     <h4 class="item-name"><%= order.name %></h4>
+                    <div class="each-price">
+                      <p id="dollar-sign">$</p>
                     <p class="price"><%= order.price_cents / 100 %></p>
+                    </div>
                     <input type="hidden" id="hidden_userID" value= <%= userID %>></input>
                     <div class="minus-plus">
                       <button value="<%=order.id%>" class="decrement-button"><img id="minus-button" src="/images/decrement-button.png"></button>
+
                       <div class="textbox"> <%= order.quantity %> </div>
+
                       <button value="<%=order.id%>" class="increment-button"><img id="plus-button" src="/images/increment-button.png"></button>
                       </div>
                     </div>
                     </div>
                 <% } %>
-                <div>
-
+                <div class="total-price">
+                  <p>Total: $</p>
                   <span id="priceID"> <%=locals.cartPrice ? locals.cartPrice :0%></span>
               </div>
                   <form method="POST" action="/api/orders/checkout"><button class="submit-button">Submit</button></form>

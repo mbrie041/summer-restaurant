@@ -1,6 +1,11 @@
 // See: https://sass-lang.com/
 
 // header
+body {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  }
 
 button:focus{
 	outline: none;
@@ -219,7 +224,7 @@ h1 {
         position: relative;
         #intro_image {
           display: block;
-          width: auto;
+          width: 100%;
           opacity: 90%;
           height: auto;
           margin-left: auto;
