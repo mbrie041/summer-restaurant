@@ -101,16 +101,18 @@ button:hover {
 
 h1 {
   font-size: 70px;
-  position:absolute;
-	left:20%;
-	top:35%;
-  font-family: Dancing Script;
-  font-weight: bold;
-  color: white;
-  margin: auto;
-  letter-spacing: 3px;
-  display: flex;
-  align-items: center；
+      position: absolute;
+      top: 20%;
+      left: 50%;
+      font-family: Dancing Script;
+      font-weight: bold;
+      color: white;
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      padding: 40px;
+      padding-top: 20px;
+      text-align: center;
 }
 
 
@@ -164,13 +166,18 @@ h1 {
 
 .h3-title {
   text-align: center;
-  font-size: 30px;
+  font-size: 38px;
+  font-family: Bebas Neue;
 }
 
 .each-order {
+  width: 85%;
+  font-size: 20px;
+  margin-left: auto;
+  margin-right: auto;
   border: solid black;
   padding: 10px;
-  margin: 10px;
+  font-family: Bebas Neue;
 }
 
 #order-confirm {
@@ -183,6 +190,20 @@ h1 {
   color: red;
 }
 
+.submit{
+  width: 85%;
+  font-size: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  border: solid black;
+  padding: 10px;
+  font-family: Bebas Neue;
+  text-align: center;
+}
+
+#wait-message {
+  color: red;
+}
 
 /* Desktop */
 @media only screen and (min-width: 1024px) {
@@ -198,18 +219,18 @@ h1 {
 
   h1 {
     font-size: 70px;
-    position:absolute;
-    left:30%;
-    top:40%;
-    margin: auto;
-    display: block;
-    font-family: Dancing Script;
-    font-weight: bold;
-    color: white;
-    margin: auto;
-    letter-spacing: 3px;
-    display: flex;
-    align-items: center；
+        position: absolute;
+        top: 30%;
+        left: 50%;
+        font-family: Dancing Script;
+        font-weight: bold;
+        color: white;
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        padding: 40px;
+        padding-top: 20px;
+        text-align: center;
   }
   .menu-display {
     display: flex;
@@ -234,3 +255,22 @@ h1 {
     }
  }
 
+
+ /* Larger Desktop */
+@media only screen and (min-width: 1024px) {
+  h1 {
+    font-size: 100px;
+        position: absolute;
+        top: 30%;
+        left: 50%;
+        font-family: Dancing Script;
+        font-weight: bold;
+        color: white;
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        padding: 40px;
+        padding-top: 20px;
+        text-align: center;
+  }
+}

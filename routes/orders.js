@@ -133,7 +133,7 @@ module.exports = (db) => {
             client.messages
               .create({
                 body: 'You received a new order request, log into your Admin Dashboard to accept or deny the request.',
-                from: '+18646592214',
+                from: '+12267776716',
                 to: `'${phoneNumber}'`
               })
               .then(message => console.log(message.sid))
@@ -159,7 +159,7 @@ module.exports = (db) => {
             client.messages
               .create({
                 body: 'Your order has been confirmed by the restaurant and will be ready for pick up in 30 minutes',
-                from: '+18646592214',
+                from: '+12267776716',
                 to: `'${phoneNumber}'`
               })
               .then(message => console.log(message.sid))

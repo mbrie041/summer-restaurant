@@ -7,6 +7,8 @@
   <!-- App CSS -->
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
   <link rel="stylesheet" href="/styles/menu-sidebar.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/login.css" type="text/css" />
+
 
   <!-- ICONS -->
   <script src="https://kit.fontawesome.com/3254a5221a.js" crossorigin="anonymous"></script>
@@ -24,10 +26,10 @@
         <%- include('partials/_menu') %>
 
           <section class="submit">
-            <h3>Order Submitted</h3>
-            <p>Please wait while the restaurant confirms your order. </p>
+            <h3 class="h3-title">Order Submitted</h3>
+            <p id="wait-message">Please wait while the restaurant confirms your order. </p>
             <% if (submitOrders) { %>
-              <form method="GET" action="/api/orders/<%=submitOrders[0].user_id%>/orders?"><button> Check Your
+              <form method="GET" action="/api/orders/<%=submitOrders[0].user_id%>/orders?"><button class="login-button"> Check Your
                   Orders </button>
                 <% } %>
               </form>
