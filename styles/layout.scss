@@ -28,6 +28,18 @@ button:hover {
   top: 0;
   z-index:10;
 
+  .quantity {
+    font-size: 20px;
+    height: 50px;
+    border: none;
+    background: white;
+    float: right;
+    padding: 10px;
+    padding-right: 0;
+    font-family: Bebas Neue;
+    margin: 3px;
+  }
+
   .nav-text {
     font-size: 22px;
     font-family: Orbitron;
@@ -42,6 +54,7 @@ button:hover {
     background: none;
     float: right;
     margin-right: 50px;
+    padding-left: 0;
   }
 
   .restaurant-icon {
@@ -165,10 +178,6 @@ h1 {
   color: red;
 }
 
-/* tablets */
-// @media only screen and (min-width: 768px) {
-
-// }
 
 /* Desktop */
 @media only screen and (min-width: 1024px) {
@@ -177,7 +186,7 @@ h1 {
     text-align: center;
     opacity: 70%;
     margin-top: 90px;
-    display: block;
+    display: flex;
     margin-left: auto;
     margin-right: auto;
   }
@@ -199,16 +208,24 @@ h1 {
   }
   .menu-display {
     display: flex;
-    width: 95%;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 90%;
     margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+
       .intro {
         position: relative;
         #intro_image {
           display: block;
-          width: 100%;
+          width: auto;
           opacity: 90%;
           height: auto;
+          margin-left: auto;
+          margin-right: auto;
         }
       }
     }
  }
+
